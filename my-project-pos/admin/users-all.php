@@ -11,10 +11,10 @@ if (!Admin::Check()) {
     exit;
 }
 $db = new MysqliDb();
-$db->where ("deleted_at", NULL, 'IS'); //soft delete
-if(isset($_GET["accs"])){
-    $db->where('role', $_GET["accs"]);
+$db->where("deleted_at", NULL, 'IS'); //soft delete
 
+if (isset($_GET["access"])) {
+    $db->where('role', $_GET["access"]);
 }
 $users = $db->get('users');
 
@@ -32,56 +32,62 @@ $users = $db->get('users');
                 <div class="container">
                     <div class="row">
                         <div class="col-8">
-                        <caption><h1 class="text-center">All User
-        <!-- <?php
-        // if(!isset($_GET["accs"])){
-        //     echo "All Users";}
-        //     elseif($_GET["accs"]=2){
-        //         echo "Admin";}
-        //     elseif($_GET["accs"]=1){
-        //         echo "User";
-        //     }
-        //     else echo "Deactive"
-        ?> -->
-        </h1></caption>
+                            <caption>
+                                <h1 class="text-center">
+                                    <?php
+                                    if (!isset($_GET["access"])) {
+                                        echo "All Users";
+                                    } elseif ($_GET["access"] == 2) {
+                                        echo "Admin";
+                                    } elseif ($_GET["access"] == 1) {
+                                        echo "User";
+                                    } else {
+                                        echo "Deactive";
+                                    }
+                                    ?>
+                                </h1>
+                            </caption>
                         </div>
                         <div class="col">
                             <h1></h1>
-                    
+
                             <a href="user_create.php" class="btn btn-outline-success">ADD Member</a>
                             <!-- <input class="btn btn-outline-success btn-warning" type="button" value="ADD Member" name="" id=""> -->
                         </div>
                     </div>
-                
-                   
-                    <table class="table table-responsive table-striped">
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Role</th>
-                        <th>Created At</th>
-                        <th>Action</th>
-                    </tr>
 
-                    <?php
-                    foreach ($users as $user) {
-                        if($user['role']== 2){$usercat= "<span class='text-success'><b>Admin</b></span>";}
-                        elseif($user['role']== 1) $usercat = "<span class='text-primary'>User</span>";
-                        else $usercat = "<span class='text-danger'>Deactive</span>";
-                        // echo $user['name']."(".$user['email'].")<br>";
-                        echo "<tr>
+
+                    <table class="table table-responsive table-striped">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Created At</th>
+                            <th>Action</th>
+                        </tr>
+
+                        <?php
+                        foreach ($users as $user) {
+                            if ($user['role'] == 2) {
+                                $usercat = "<span class='text-success'><b>Admin</b></span>";
+                            } elseif ($user['role'] == 1) $usercat = "<span class='text-primary'>User</span>";
+                            else $usercat = "<span class='text-danger'>Deactive</span>";
+                            // echo $user['name']."(".$user['email'].")<br>";
+                            echo "<tr>
                              <td>" . $user['id'] . "</td>
                              <td>" . $user['name'] . "</td>
                              <td>" . $user['email'] . "</td>
-                             <td>" . $usercat. "</td>
+                             <td>" . $usercat . "</td>
                             <td>" . $user['created_at'] . "</td>
-                            <td><a href='user_edit.php?id={$user['id']}'><i class='bi bi-pencil-square'></i></a> <a href='user_delete.php?id={$user['id']}' onclick='return confirm(\"Are you sure want to delete ?\")'><i class='bi bi-trash3'></i></a> </td>
+                            <td> <a href='user_edit.php?id={$user['id']}'><i class='bi bi-pencil-square'></i> </a> |
+                              <a href='user_delete.php?id={$user['id']}' onclick='return confirm(\"Are you sure want to delete ?\")'><i class='bi bi-trash3'></i></a> 
+                            </td>
 
                         </tr>";
-                    }
-                    ?>
-                </table>
+                        }
+                        ?>
+                    </table>
                 </div>
                 <!-- changed content  ends-->
             </main>
