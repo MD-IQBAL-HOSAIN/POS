@@ -13,6 +13,7 @@ if (!Admin::Check()) {
 $db = new MysqliDb();
 $db->where("deleted_at", NULL, 'IS'); //soft delete
 
+
 if (isset($_GET["access"])) {
     $db->where('role', $_GET["access"]);
 }
@@ -35,25 +36,25 @@ $users = $db->get('users');
                             <caption>
                                 <h1 class="text-center">
                                     <?php
+                                    /* I filtered user according to the role */
                                     if (!isset($_GET["access"])) {
                                         echo "All Users";
                                     } elseif ($_GET["access"] == 2) {
                                         echo "Admin";
                                     } elseif ($_GET["access"] == 1) {
-                                        echo "User";
+                                        echo "Generel User";
                                     } else {
-                                        echo "Deactive";
+                                        echo "Restriced User";
                                     }
                                     ?>
                                 </h1>
                             </caption>
                         </div>
-                        <div class="col">
+                        <!-- ADD memeber button -->
+                     <!-- <div class="col">
                             <h1></h1>
-
-                            <a href="user_create.php" class="btn btn-outline-success">ADD Member</a>
-                            <!-- <input class="btn btn-outline-success btn-warning" type="button" value="ADD Member" name="" id=""> -->
-                        </div>
+                            <a href="user_create.php" class="btn btn-outline-success">ADD Member</a>                           
+                        </div> -->
                     </div>
 
 
@@ -80,8 +81,7 @@ $users = $db->get('users');
                              <td>" . $user['email'] . "</td>
                              <td>" . $usercat . "</td>
                             <td>" . $user['created_at'] . "</td>
-                            <td> <a href='user_edit.php?id={$user['id']}'><i class='bi bi-pencil-square'></i> </a> |
-                              <a href='user_delete.php?id={$user['id']}' onclick='return confirm(\"Are you sure want to delete ?\")'><i class='bi bi-trash3'></i></a> 
+                            <td> <a href='user_edit.php?id={$user['id']}'><i class='bi bi-pencil-square'></i></a> || <a href='user_delete.php?id={$user['id']}' onclick='return confirm(\"Are you sure want to delete ?\")'><i class='bi bi-trash3'></i></a> 
                             </td>
 
                         </tr>";

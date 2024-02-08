@@ -11,7 +11,7 @@ if (!Admin::Check()) {
     exit;
 }
 $db = new MysqliDb();
-$categories = $db->get('categories');
+$suppliers = $db->get('suppliers');
 ?>
 <?php require __DIR__ . '/components/header.php'; ?>
 </head>
@@ -23,25 +23,38 @@ $categories = $db->get('categories');
         <div id="layoutSidenav_content">
             <main>
                 <!-- changed content -->
-                <ul class="nav nav-tabs">
+                <table class="table table-stripped table-hover">
+                    <tr>
+                        <th>Customer Id</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th>Address</th>
+                        <th>Created</th>
+                        <th>Deleted</th>
+                        <th>Action</th>
+                    </tr>
                     <?php
-                    foreach ($categories as $category) {
-                        // echo $categori['id']." ".$categori['name']." <br>";
-                        echo "<li class='nav-item'>
-                        <a class='nav-link active' aria-current='page' href='category_all.php?cat_id={$category['id']}'>" . $category['name'] . "</a>
-                      </li>";
+                    foreach ($suppliers as $c) {
+                        echo
+                        "<tr>
+                            <td>{$c['id']}</td>
+                             <td>{$c['name']}</td>
+                             <td>{$c['email']}</td>
+                             <td>{$c['mobile']}</td>
+                             <td>{$c['address']}</td>
+                             <td>{$c['created']}</td>
+                             <td>{$c['deleted']}</td>
+           
+                            <td><a href='#?suppliers_id={$c['id']}'><i class='bi bi-pencil-square'></i></a></a> || <a href='#?suppliers_id={$c['id']}' onclick='return confirm(\"Are you want sure want to delete ?\")'><i class='bi bi-trash3'></i></a></td>
+                        <tr>";
                     }
                     ?>
-                </ul>               
-                <?php
-                require 'productt.php'
-                ?>
-
-
+                </table>
                 <!-- changed content  ends-->
             </main>
             <!-- footer -->
-            <?php require __DIR__ . '/components/footer.php';?>
+            <?php require __DIR__ . '/components/footer.php'; ?>
         </div>
     </div>
     <script src="<?= settings()['adminpage'] ?>assets/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

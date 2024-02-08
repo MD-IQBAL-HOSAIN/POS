@@ -11,7 +11,7 @@ if (!Admin::Check()) {
     exit;
 }
 $db = new MysqliDb();
-$categories = $db->get('categories');
+$orders = $db->get('orders');
 ?>
 <?php require __DIR__ . '/components/header.php'; ?>
 </head>
@@ -23,25 +23,41 @@ $categories = $db->get('categories');
         <div id="layoutSidenav_content">
             <main>
                 <!-- changed content -->
-                <ul class="nav nav-tabs">
+                <table class="table table-stripped table-hover">
+                    <tr>
+                        <th>Id</th>
+                        <th>Supplier_id</th>
+                        <th>Net_total</th>
+                        <th>Discount</th>
+                        <th>Grand_total</th>
+                        <th>Comment</th>
+                        <th>Payment_type</th>
+                        <th>Trx_ID</th>
+                        <th>Created</th>
+                        <th>Updated</th>
+                    </tr>
                     <?php
-                    foreach ($categories as $category) {
-                        // echo $categori['id']." ".$categori['name']." <br>";
-                        echo "<li class='nav-item'>
-                        <a class='nav-link active' aria-current='page' href='category_all.php?cat_id={$category['id']}'>" . $category['name'] . "</a>
-                      </li>";
+                    foreach ($orders as $in) {
+                        echo
+                        "<tr>
+                            <td>{$in['id']}</td>
+                             <td>{$in['supplier_id']}</td>
+                             <td>{$in['nettotal']}</td>
+                             <td>{$in['discount']}</td>
+                             <td>{$in['grandtotal']}</td>
+                             <td>{$in['comment']}</td>
+                             <td>{$in['payment_type']}</td>
+                             <td>{$in['trxid']}</td>
+                             <td>{$in['created']}</td>
+                             <td>{$in['updated']}</td> 
+                        <tr>";
                     }
                     ?>
-                </ul>               
-                <?php
-                require 'productt.php'
-                ?>
-
-
+                </table>
                 <!-- changed content  ends-->
             </main>
             <!-- footer -->
-            <?php require __DIR__ . '/components/footer.php';?>
+            <?php require __DIR__ . '/components/footer.php'; ?>
         </div>
     </div>
     <script src="<?= settings()['adminpage'] ?>assets/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
