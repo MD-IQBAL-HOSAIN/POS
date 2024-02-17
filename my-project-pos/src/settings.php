@@ -2,10 +2,10 @@
 if (!function_exists('settings')) {
     function settings()
     {
-       $root = "http://localhost/Round-57(PHP_CLASS)/PHP/new-project-pos/"; 
+       $root = "http://localhost/ROUND57/PHP/r57-POS/"; 
         return [
             'root'  => $root,
-            'companyname'=> '<i>Best Buy Super Shop</i>',
+            'companyname'=> 'Best Buy Super Shop',
             'logo'=>$root."admin/assets/img/shark2.jpeg",
             'homepage'=> $root,
             'adminpage'=>$root.'admin/',
