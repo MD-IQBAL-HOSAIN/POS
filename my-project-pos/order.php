@@ -33,7 +33,7 @@ $page = "Home";
             <body>
 
                 <form action='' method='post'>
-                    <p><label>Product:</label><input type='text' id="productname" name='productname' value='' class='auto'></p>
+                    <p><label><b style="font-size: larger;">Product: </b></label><input type='text' id="productname" name='productname' value='' class='auto rounded p-1' placeholder='Search product'></p>
                 </form>
                 <table id="product_table" class="table table-responsive">
                     <tr>
@@ -53,8 +53,8 @@ $page = "Home";
                         </tr>
                         <tr>
                             <td colspan="4">
-                                <input type="text" name="comment" id="comment" placeholder="comment">
-                                <select name="payment_method" id="payment_method">
+                                <input type="text" name="comment" id="comment" placeholder="Reference" class="rounded p-1">
+                                <select name="payment_method" id="payment_method" class="rounded p-1">
                                     <option value="cash">Cash</option>
                                     <option value="bkash">bKash</option>
                                     <option value="nogod">Nogod</option>
@@ -70,7 +70,7 @@ $page = "Home";
                     </tfoot>
 
                 </table>
-                <h3>Data returned from server as follows:</h3>
+                <h3>Payment Receive:</h3>
                 <div id="response">
 
                 </div>
