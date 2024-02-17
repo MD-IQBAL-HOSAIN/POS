@@ -5,7 +5,7 @@ if (!function_exists('settings')) {
        $root = "http://localhost/ROUND57/PHP/r57-POS/"; 
         return [
             'root'  => $root,
-            'companyname'=> 'Best Buy Super Shop',
+            'companyname'=> 'Shark Super Shop',
             'logo'=>$root."admin/assets/img/shark2.jpeg",
             'homepage'=> $root,
             'adminpage'=>$root.'admin/',
