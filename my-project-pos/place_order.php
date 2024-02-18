@@ -17,8 +17,8 @@ if(isset($_POST['orders'])){
     $trxId =$db->escape( $_POST['trxId']);
 
     $html = "";
-    foreach ($orders as $order) {
-       echo "<h3><i>Best Buy Super Shop</i></h3>"."<hr>";
+    echo "<h4><i>Payment Receipt</i></h4>"."<hr>";
+    foreach ($orders as $order) {      
         $html .=  "<b>Product Name:</b> ". $order['pname'] . "<hr>" ."<b> Quantity: </b>". $order['qty'] ."<hr>";
     }
     $html .= "<b> Grand Total :</b> " . $grandtotal . "<hr>";
@@ -27,28 +27,4 @@ if(isset($_POST['orders'])){
     $html .= "<b> Transaction ID : </b>" . $trxId . "<hr>";
     echo $html;
 }
-
-
-// $html .= '<table border="1">
-//             <tr>
-//                 <th>Product Name</th>
-//                 <th>Quantity</th>
-//             </tr>';
-
-// foreach ($orders as $order) {
-//     $html .= '<tr>
-//                 <td>' . $order['pname'] . '</td>
-//                 <td>' . $order['qty'] . '</td>
-//             </tr>';
-// }
-
-// $html .= '</table>';
-// $html .= "<br>Grand Total : " . $grandtotal . "<br>";
-// $html .= "Reference : " . $comment . "<br>";
-// $html .= "Payment Method : " . $payment_method . "<br>";
-// $html .= "Transaction ID : " . $trxId . "<br>";
-
-// echo $html;
-// }
-
 ?>

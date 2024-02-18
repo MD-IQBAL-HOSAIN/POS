@@ -79,11 +79,11 @@ $page = "Home";
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Payment Receive</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel"><img src="images/shark.png" alt=""><i>Best Buy Super Shop</i></h1>
                                 <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
                             </div>
                             <div class="modal-body">
-                                <div id="response" class="p-2" style="background-color: whitesmoke;">
+                                <div id="response" class="p-2 rounded" style="background-color: whitesmoke;">
 
                                 </div>
                             </div>
