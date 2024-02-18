@@ -22,10 +22,11 @@ $page = "Home";
 
 <body>
     <div class="container">
-        <hr>
+    <hr>
         <img src="<?= settings()['logo'] ?>" alt="">
         <span style="font-size: 30px; color:chocolate; margin-left: 200px;"><strong><i>BEST BUY SUPER SHOP</i></strong></span> <br>
         <span><i>কিনুন সাচ্ছন্দ্যে।</i></span>
+        
 
         <?php
         require __DIR__ . '/components/menubar.php';
