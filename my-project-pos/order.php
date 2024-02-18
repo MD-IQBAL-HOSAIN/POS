@@ -14,6 +14,9 @@ $page = "Home";
 <?php require __DIR__ . '/components/header.php'; ?>
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/jquery-ui-1.13.1/jquery-ui.min.css" type="text/css" />
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
+
 
 </head>
 
@@ -25,7 +28,7 @@ $page = "Home";
         <span><i>কিনুন সাচ্ছন্দ্যে।</i></span>
 
         <?php
-        require __DIR__ . '/components/menubar.php'; 
+        require __DIR__ . '/components/menubar.php';
         ?>
 
         <div>
@@ -65,14 +68,31 @@ $page = "Home";
                                 <input type="text" name="trxId" id="trxId" class="d-none" placeholder="transaction ID">
                             </td>
                             <td> <button class="btn btn-secondary">Back</button> </td>
-                            <td> <input type="button" id="orderBtn" class="btn btn-info" value="Place Order"></td>
+                            <td> <input type="button" id="orderBtn" class="btn btn-info" value="Place Order" data-bs-toggle="modal" data-bs-target="#exampleModal"></td>
                         </tr>
                     </tfoot>
 
                 </table>
-                <h3>Payment Receive:</h3>
-                <div id="response">
+                <!-- <h3>Payment Receive:</h3> -->
+                <!--  -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Payment Receive</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="response">
 
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Print</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <script type="text/javascript" src="assets/js/jquery-3.6.0.min.js"></script>

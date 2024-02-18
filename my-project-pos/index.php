@@ -30,7 +30,7 @@ $page = "Home";
                 <span><i>কিনুন সাচ্ছন্দ্যে।</i></span>
             </div>
             <div class="col-lg-7 col-md-7 col-sm-7">
-                <span style="font-size: 50px; color:chocolate; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"><strong><i>SHARK SUPER SHOP</i></strong></span> <br>
+                <span style="font-size: 50px; color:chocolate; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"><strong><i>BEST BUY SUPER SHOP</i></strong></span> <br>
             </div>
         </div>
 

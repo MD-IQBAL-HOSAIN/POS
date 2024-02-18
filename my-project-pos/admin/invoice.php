@@ -42,9 +42,9 @@ $invoice = $db->get('invoice');
                         "<tr>
                             <td>{$in['id']}</td>
                              <td>{$in['customer_id']}</td>
-                             <td>{$in['nettotal']}</td>
+                             <td>{$in['total']}</td>
                              <td>{$in['discount']}</td>
-                             <td>{$in['grandtotal']}</td>
+                             <td>{$in['pay_amount']}</td>
                              <td>{$in['comment']}</td>
                              <td>{$in['payment_type']}</td>
                              <td>{$in['trxid']}</td>
