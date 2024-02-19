@@ -24,8 +24,13 @@
                         <a class="nav-link" href="category_all.php">Product categories</a>
                         <!-- <a class="nav-link" href="layout-static.html">All</a> -->
                         <a class="nav-link" href="customer_list.php">Customers</a>
+                        <a class="nav-link" href="employee.php">Employee_List</a>
                         <a class="nav-link" href="invoice.php">Invoice</a>
+                        <a class="nav-link" href="invoicedetails.php">Invoice_Details</a>
                         <a class="nav-link" href="orders.php">Orders</a>
+                        <a class="nav-link" href="orderdetails.php">Orders_Details</a>
+                        <a class="nav-link" href="expenses.php">Expences</a>
+                        <a class="nav-link" href="accounts.php">Payment</a>
                         <a class="nav-link" href="suppliers.php">Suppliers</a>
                     </nav>
                 </div>

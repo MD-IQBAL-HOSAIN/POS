@@ -226,6 +226,22 @@ $page = "Home";
                                     alert('Order placed successfully');
                                 }
                             });
+                            // $.ajax({
+                            //     url:'set-invoice.php',
+                            //     type: 'post',
+                            //     data: {
+                            //         id: 'null',
+                            //         customer_id:'',
+                            //         total:'',
+                            //         discount:'',
+                            //         pay_amount:'',
+                            //         comment:'',
+                            //         payment_type:'',
+                            //         trxid:'',
+
+
+                            //     }
+                            // })
                         });
                     });
                 </script>
