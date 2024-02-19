@@ -23,6 +23,10 @@ $invoice = $db->get('invoice');
         <div id="layoutSidenav_content">
             <main>
                 <!-- changed content -->
+                <div style="background-color:antiquewhite">
+                    <H1 style="text-align: center;">Invoice</H1>
+                    <hr>
+                </div>
                 <table class="table table-stripped table-hover">
                     <tr>
                         <th>Id</th>

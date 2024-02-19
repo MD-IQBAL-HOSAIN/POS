@@ -23,7 +23,11 @@ $invoicedetails = $db->get('invoicedetails');
         <div id="layoutSidenav_content">
             <main>
                 <!-- changed content -->
-                <table class="table table-stripped table-hover">             
+                <div style="background-color:antiquewhite">
+                    <H1 style="text-align: center;">Invoice Details</H1>
+                    <hr>
+                </div>
+                <table class="table table-stripped table-hover">
                     <tr>
                         <th>Id</th>
                         <th>Invoice_Id</th>
@@ -62,4 +66,5 @@ $invoicedetails = $db->get('invoicedetails');
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="<?= settings()['adminpage'] ?>assets/js/datatables-simple-demo.js"></script>
 </body>
+
 </html>

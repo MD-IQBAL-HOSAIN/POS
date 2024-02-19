@@ -23,6 +23,10 @@ $orderdetails = $db->get('orderdetails');
         <div id="layoutSidenav_content">
             <main>
                 <!-- changed content -->
+                <div style="background-color:antiquewhite">
+                <H1 style="text-align: center; " >ORDER DETAILS</H1>
+                <hr>
+                </div>
                 <table class="table table-stripped table-hover">
                     <tr>
                         <th>Id</th>

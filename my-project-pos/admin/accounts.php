@@ -23,6 +23,10 @@ $accounts = $db->get('accounts');
         <div id="layoutSidenav_content">
             <main>
                 <!-- changed content -->
+                <div style="background-color:antiquewhite">
+                    <H1 style="text-align: center;">Payment</H1>
+                    <hr>
+                </div>
                 <table class="table table-stripped table-hover">
                     <tr>
                         <th>Account_Id</th>

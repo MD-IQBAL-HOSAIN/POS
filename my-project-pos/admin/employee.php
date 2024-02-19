@@ -23,8 +23,11 @@ $employee = $db->get('employee');
         <div id="layoutSidenav_content">
             <main>
                 <!-- changed content -->
+                <div style="background-color:antiquewhite">
+                    <H1 style="text-align: center;">Employee List</H1>
+                    <hr>
+                </div>
                 <table class="table table-stripped table-hover">
-                <!-- <h1>Employee List</h1> -->
                     <tr>
                         <th>Employee Id</th>
                         <th>First Name</th>
