@@ -78,7 +78,7 @@ if (!Admin::Check()) {
                     </div>
                     <div class="row">
                         <div class="col-xl-4 col-md-4 card mb-4 m-3" style="background-color: bisque;">  
-                            <h3>Daily Sales</h3>                          
+                            <h3 style="text-align: center;">Daily Sales</h3>                          
                             <table class="table table-striped table-hover">
                                 <tr>
                                     <th>Name</th>
@@ -95,7 +95,7 @@ if (!Admin::Check()) {
                             </table>
                         </div>
                         <div class="col-xl-3 col-md-4 card mb-4 m-3" style="background-color: cadetblue;">  
-                            <h3>Daily Collection</h3>                          
+                            <h3 style="text-align: center;">Daily Collection</h3>                          
                             <table class="table table-striped table-hover">
                                 <tr>
                                     <th>Name</th>
@@ -112,7 +112,7 @@ if (!Admin::Check()) {
                             </table>
                         </div>
                         <div class="col-xl-4 col-md-4 card mb-4 m-3" style="background-color: chocolate;">  
-                            <h3>Purchases</h3>                          
+                            <h3 style="text-align: center;">Purchases</h3>                          
                             <table class="table table-striped table-hover">
                                 <tr>
                                     <th>Name</th>
@@ -131,7 +131,7 @@ if (!Admin::Check()) {
                     </div>
                     <div class="row">
                         <div class="col-xl-6 col-md-6 card mb-4 m-3">  
-                            <h3>Top Selling Products</h3>                          
+                            <h3 style="text-align: center; color: green">Top Selling Products</h3>                          
                             <table class="table table-striped table-hover">
                                 <tr>
                                     <th>Name</th>
@@ -148,7 +148,7 @@ if (!Admin::Check()) {
                             </table>
                         </div>
                         <div class="col-xl-5 col-md-5 card mb-4 m-3" style="background-color: antique-white;">  
-                            <h3>Employee Of The Month</h3>                          
+                            <h3 style="text-align: center; color: green">Employee Of The Month</h3>                          
                             <table class="table table-striped table-hover">
                                 <tr>
                                     <th>Name</th>
