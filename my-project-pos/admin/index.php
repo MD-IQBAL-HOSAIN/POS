@@ -77,78 +77,78 @@ if (!Admin::Check()) {
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xl-4 col-md-4 card mb-4 m-3" style="background-color: bisque;">  
-                            <h3 style="text-align: center;">Daily Sales</h3>                          
+                        <div class="col-xl-4 col-md-4 card mb-4 m-3" style="background-color: bisque;">
+                            <h3 style="text-align: center;">Daily Sales</h3>
                             <table class="table table-striped table-hover">
                                 <tr>
                                     <th>Name</th>
                                     <th>Amount</th>
                                 </tr>
                                 <tr>
-                                <td>Jason Gilmore</td>
-                                <td>$500</td>
+                                    <td>Jason Gilmore</td>
+                                    <td>$500</td>
                                 </tr>
                                 <tr>
-                                <td>John Doe</td>
-                                <td>$700</td>
+                                    <td>John Doe</td>
+                                    <td>$700</td>
                                 </tr>
                             </table>
                         </div>
-                        <div class="col-xl-3 col-md-4 card mb-4 m-3" style="background-color: cadetblue;">  
-                            <h3 style="text-align: center;">Daily Collection</h3>                          
+                        <div class="col-xl-3 col-md-4 card mb-4 m-3" style="background-color: cadetblue;">
+                            <h3 style="text-align: center;">Daily Collection</h3>
                             <table class="table table-striped table-hover">
                                 <tr>
                                     <th>Name</th>
                                     <th>Amount</th>
                                 </tr>
                                 <tr>
-                                <td>Adnan Sami</td>
-                                <td>$1500</td>
+                                    <td>Adnan Sami</td>
+                                    <td>$1500</td>
                                 </tr>
                                 <tr>
-                                <td>Atif Aslam</td>
-                                <td>$2000</td>
+                                    <td>Atif Aslam</td>
+                                    <td>$2000</td>
                                 </tr>
                             </table>
                         </div>
-                        <div class="col-xl-4 col-md-4 card mb-4 m-3" style="background-color: chocolate;">  
-                            <h3 style="text-align: center;">Purchases</h3>                          
+                        <div class="col-xl-4 col-md-4 card mb-4 m-3" style="background-color: chocolate;">
+                            <h3 style="text-align: center;">Purchases</h3>
                             <table class="table table-striped table-hover">
                                 <tr>
                                     <th>Name</th>
                                     <th>Amount</th>
                                 </tr>
                                 <tr>
-                                <td>Smart Watch</td>
-                                <td>$2000</td>
+                                    <td>Smart Watch</td>
+                                    <td>$2000</td>
                                 </tr>
                                 <tr>
-                                <td>Shoes</td>
-                                <td>$2000</td>
+                                    <td>Shoes</td>
+                                    <td>$2000</td>
                                 </tr>
                             </table>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xl-6 col-md-6 card mb-4 m-3">  
-                            <h3 style="text-align: center; color: green">Top Selling Products</h3>                          
+                        <div class="col-xl-6 col-md-6 card mb-4 m-3">
+                            <h3 style="text-align: center; color: green">Top Selling Products</h3>
                             <table class="table table-striped table-hover">
                                 <tr>
                                     <th>Name</th>
                                     <th>Amount</th>
                                 </tr>
                                 <tr>
-                                <td>Iphone 13 pro</td>
-                                <td>$1200</td>
+                                    <td>Iphone 13 pro</td>
+                                    <td>$1200</td>
                                 </tr>
                                 <tr>
-                                <td>Smart Watch</td>
-                                <td>$400</td>
+                                    <td>Smart Watch</td>
+                                    <td>$400</td>
                                 </tr>
                             </table>
                         </div>
-                        <div class="col-xl-5 col-md-5 card mb-4 m-3" style="background-color: antique-white;">  
-                            <h3 style="text-align: center; color: green">Employee Of The Month</h3>                          
+                        <div class="col-xl-5 col-md-5 card mb-4 m-3" style="background-color: antique-white;">
+                            <h3 style="text-align: center; color: green">Employee Of The Month</h3>
                             <table class="table table-striped table-hover">
                                 <tr>
                                     <th>Name</th>
@@ -156,14 +156,14 @@ if (!Admin::Check()) {
                                     <th>Location</th>
                                 </tr>
                                 <tr>
-                                <td>Scarlet Johanson</td>
-                                <td>Hub 1Manager</td>
-                                <td>Kazipara</td>
+                                    <td>Scarlet Johanson</td>
+                                    <td>Hub 1Manager</td>
+                                    <td>Kazipara</td>
                                 </tr>
                                 <tr>
-                                <td>S. Watson</td>
-                                <td>Hub 2 Manager</td>
-                                <td>Mirpur 10.</td>
+                                    <td>S. Watson</td>
+                                    <td>Hub 2 Manager</td>
+                                    <td>Mirpur 10.</td>
                                 </tr>
                             </table>
                         </div>
