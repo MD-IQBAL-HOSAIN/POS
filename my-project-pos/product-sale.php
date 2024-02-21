@@ -387,17 +387,13 @@ $db = new MysqliDb();
                 success: function(response) {
                     console.log(response)
                     // call-back retrun
-                    $('#response')
-
-
-
-
                     // on-click all add content remove
                     $("#add_product_container").empty();
                     $('#reference').val('');
                     $('#payment_method').val('1');
                     $('#txnidin').val('');
                     $('#txnidin').addClass('d-none');
+                    alert('submitted successfully !!');
                     updateTotal();
                 }
             });
