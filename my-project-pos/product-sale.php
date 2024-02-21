@@ -10,62 +10,84 @@ $db = new MysqliDb();
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" integrity="sha512-ELV+xyi8IhEApPS/pSj66+Jiw+sOT1Mqkzlh8ExXihe4zfqbWkxPRi8wptXIO9g73FSlhmquFlUOuMSoXz5IRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <main>
-    <div class="container-fluid">
-    <hr>
-        <img src="<?= settings()['logo'] ?>" alt="">
-        <span style="font-size: 30px; color:chocolate; margin-left: 200px;"><strong><i>BEST BUY SUPER SHOP</i></strong></span> <br>
-        <span><i>কিনুন সাচ্ছন্দ্যে।</i></span>
-        
-
-        <?php
-        require __DIR__ . '/components/menubar.php';
-        ?>
-
-        <div class="vh-100">
-
-            <div class="row">
-                <div class="col-2 border mh-100">a</div>
-                <div class="col-4 border mh-100">
+    <div class="container-fluid bg-success-subtle">
+            <!-- header side -->
+            <div class="container-fluid">
+                <div class="row">
+                    <?php
+                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == 'true') {
+                    ?>
+                        <a class="btn btn-info w-25" href="product-sale.php">Home Page</a>
+                        <a class="btn btn-info w-25" href="logout.php">Logout</a>
+                    <?php
+                    } else {
+                    ?>
+                        <a href="registration.php">Sign Up</a>
+                        <a href="login.php">Sign In</a>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </div>
+            <div class="">
+            <div class="row vh-100">
+                <div class="col-2">
+                    side bar
+                </div>
+                <div class="col-5 ">
                     <form action="">
                         <div class="d-flex">
-                            <input class="form-control p-1" type="text" name="" id="" placeholder="Product search">
+                            <input class="form-control p-1" type="text" name="" id="searchProducts" placeholder="Product search">
                         </div>
                     </form>
+                    <div id="protablecon" class="overflow-y-scroll h-50">
+                        <table class="table table-sm table-hover table-striped table-border">
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Add+</th>
+                                </tr>
+                            </thead>
+                            <tbody id="product_table" class="overflow-y-scroll h-50">
+
+                            </tbody>
+                        </table>
+
+                    </div>
                 </div>
-                <div class="col-6 border bg-secondary bg-opacity-25">
+                <div class="col-5 border bg-secondary bg-opacity-25">
                     <div class="container">
                         <form action="">
-                            <div class="d-flex justify-content-around">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <div class="input-group p-1">
-                                            <input class="form-control" type="text" name="" id="SearchInCustomer" placeholder="Customer name/id">
-                                            <input type="text" style="width: 65%;" class="input-group-text" name="" id="customer_id" readonly value="1">
-                                        </div>
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="input-group p-1">
+                                        <input style="width: 30%;" class="form-control" type="text" name="" id="SearchInCustomer" placeholder="Customer id">
+                                        <span class="d-none" id="customer_id">1</span>
+                                        <span style="width: 70%;" class="input-group-text" id="customer_name"></span>
                                     </div>
-                                    <div class="col-4">
-                                        <div class="input-group p-1">
-                                            <!-- barcode search  -->
-                                            <input class="form-control" type="number" name="" id="SearchInQR" placeholder="Barcode">
-                                        </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="input-group p-1">
+                                        <!-- barcode search  -->
+                                        <input class="form-control" type="number" name="" id="SearchInQR" placeholder="Barcode">
                                     </div>
                                 </div>
                             </div>
                         </form>
-                        <!-- customer set  up here -->
-                        <div>
-                        </div>
                         <!-- barcode search and add to table -->
-                        <div class="">
-                            <table style="height: 400px;" class="table table-sm table-bordered table-striped">
+                        <div class="" style="height: 400px;">
+                            <table class="table table-sm table-bordered table-hover table-striped ">
                                 <thead>
-                                    <tr class="row">
+                                    <tr class="row text-center">
                                         <th class="col-2">Barcode</th>
                                         <th class="col-4">Product</th>
                                         <th class="col-2">Price</th>
                                         <th class="col-1">Qty</th>
                                         <th class="col-2">Total</th>
-                                        <th class="col-1">Delete</th>
+                                        <th class="col-1 ">E/D</th>
                                     </tr>
                                 </thead>
                                 <tbody id="add_product_container">
@@ -73,9 +95,12 @@ $db = new MysqliDb();
                                 </tbody>
                             </table>
                         </div>
-                        <div>
-                            <div class="row">
-                                <div class="col-5">
+
+                        <hr>
+                        <!-- buttom row in col 3  -->
+                        <div class="">
+                            <div class="row align-items-center bg-info p-2">
+                                <div class="col-5 p-3">
                                     <!-- Payment column  -->
 
                                     <div class="input-group">
@@ -92,8 +117,6 @@ $db = new MysqliDb();
                                         <input type="text" id="txnidin" class="d-none form-control" name="txnidin">
                                     </div>
                                     <!-- Payment column end  -->
-
-
                                 </div>
                                 <div class="col-5">
                                     <table class="table table-bordered table-striped table-sm">
@@ -124,8 +147,8 @@ $db = new MysqliDb();
                                     </span>
                                 </div>
                             </div>
-
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -143,7 +166,72 @@ $db = new MysqliDb();
         function financial(x) {
             return Number.parseFloat(x).toFixed(2);
         }
+        //01 function start
         $(function() {
+
+            $.post('product_select.php', function(data) {
+                // console.log(data);
+                var prolist = JSON.parse(data);
+
+                $.each(prolist, function(index, prolist) {
+                    $htmlpro = '';
+                    $htmlpro += '<tr>';
+                    $htmlpro += '<td class="proid d-none">' + prolist.id + '</td>';
+                    $htmlpro += '<td class="barcode">' + prolist.barcode + '</td>';
+                    $htmlpro += '<td>' + prolist.name + '</td>';
+                    $htmlpro += '<td>' + prolist.price + '</td>';
+                    $htmlpro += '<td>' + prolist.quantity + '</td>';
+                    $htmlpro += '<td><button class="addbutton btn btn-secondary btn-outline-success text-white"><i class="bi bi-cart-plus"></i></button></td>';
+                    $htmlpro += '</tr>';
+                    $('#product_table').append($htmlpro);
+                });
+            });
+        }); 
+        //end function 
+
+        //02 function start customer
+        $(function() {
+
+            // autocomplete in customer
+
+            $('#SearchInCustomer').autocomplete({
+                source: "search_customer.php",
+                minLength: 1,
+                select: function(event, ui) {
+                    var id = ui.item.id;
+                    addCustomer(id);
+                }
+            });
+
+            //addcustomer autocomplete give a id
+            function addCustomer(id) {
+                $.ajax({
+                    url: 'customer_add.php',
+                    type: 'post',
+                    data: {
+                        id: id
+                    },
+                    success: function(response) {
+                        responseee = JSON.parse(response);
+                        // console.log(responseee.name);
+                        $('#customer_id').text(responseee.id);
+                        $('#customer_name').text(responseee.name);
+                        $("#SearchInCustomer").val("").focus();
+                    }
+                });
+            };
+        });
+
+        //03 function start 
+        $(function() {
+            // tobali to add product
+            $(document).on('click','.addbutton',function(e){
+                e.preventDefault();
+                let id = $(this).closest('tr').find('.proid').text();
+                console.log(id);
+                addProduct(id)
+
+            });
             // autocomplete in product
             $("#SearchInQR").autocomplete({
                 source: "search_qr.php",
@@ -166,12 +254,12 @@ $db = new MysqliDb();
                         // add new product row in table
                         $html = '<tr class="row ">';
                         $html += '<td class="productID d-none">' + response.id + '</td>';
-                        $html += '<td class="col-2">' + response.barcode + '</td>';
+                        $html += '<td class="col-2 barcode">' + response.barcode + '</td>';
                         $html += '<td class="col-4">' + response.name + '</td>';
                         $html += '<td class="pprice col-2 text-end">' + response.price + '</td>';
                         $html += '<td class="col-1 p-1"><input class="quantity form-control form-control-sm pt-1 pe-1" type="number" name="quantity" value="1" min="1" max="' + response.quantity + '"></td>';
                         $html += '<td class="itemtotals col-2 text-end">' + response.price + '</td>';
-                        $html += '<td class="col-1" ><a href="#" class="deleteproduct" data-id="' + response.id + '"><i class="bi bi-trash3"></i></a></td>';
+                        $html += '<td class="col-1 text-center" ><a href="#" class="deleteproduct" data-id="' + response.id + '"><i class="bi bi-trash3"></i></a></td>';
                         $html += '</tr>';
                         $('#add_product_container').append($html);
                         $("#SearchInQR").val("").focus();
@@ -190,10 +278,10 @@ $db = new MysqliDb();
                 $row.find('.totaltaxin').text(financial(textotal));
                 updateTotal();
             });
-            // nettotal create
+            // nettotal creat
             function updateTotal() {
 
-                // nettotal create
+                // nettotal creat
                 var nettotal = 0;
                 var grenTotal = 0;
                 var discount = 0;
@@ -215,20 +303,23 @@ $db = new MysqliDb();
 
 
             }
+            
+            //   
+
             // delete product
             $(document).on('click', '.deleteproduct', function(e) {
                 e.preventDefault();
                 $(this).closest('tr').remove();
                 updateTotal();
             });
-            //Cacncel button
+            // Cancel btn click and clear table
             $(document).on('click', '#selCancel', function(e) {
                 e.preventDefault();
                 $("#add_product_container").empty();
-                $("#reference").val('');
-                $("#payment_method").val('1');
-                // $("#txnidin").val('');
-                $("#txnidin").addClass('d-none').val('');
+                $('#reference').val('');
+                $('#payment_method').val('1');
+                $('#txnidin').val('');
+                $('#txnidin').addClass('d-none');
                 updateTotal();
             });
             $.post('account_pay_mathod.php', function(data) {
@@ -249,8 +340,11 @@ $db = new MysqliDb();
                 }
             });
         });
+
+
         // place order
         $(document).on('click', '#placeOrder', function() {
+            
             var payment_method = $('#payment_method').val();
             if (payment_method == 1) {
                 var trxID = '';
@@ -279,7 +373,7 @@ $db = new MysqliDb();
                 method: 'post',
                 data: {
                     orders: order,
-                    customer_id: $('#customer_id').val(),
+                    customer_id: $('#customer_id').text(),
                     nettotal: $('#nettotal').text(),
                     grandtotal: $('#payamount').text(),
                     discount: $('#discount').text(),
@@ -288,21 +382,26 @@ $db = new MysqliDb();
                     payment_method: payment_method,
                     trxID: trxID
                 },
+
+
                 success: function(response) {
                     console.log(response)
+                    // call-back retrun
+                    $('#response')
+
+
+
+
+                    // on-click all add content remove
                     $("#add_product_container").empty();
-                $("#reference").val('');
-                $("#payment_method").val('1');
-                // $("#txnidin").val('');
-                $("#txnidin").addClass('d-none').val('');
-                alert('Order placed successfully');
-                updateTotal();
+                    $('#reference').val('');
+                    $('#payment_method').val('1');
+                    $('#txnidin').val('');
+                    $('#txnidin').addClass('d-none');
+                    updateTotal();
                 }
             });
         });
 
-
-        //  start function end
-        // });
     </script>
 </main>
