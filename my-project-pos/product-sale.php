@@ -11,6 +11,16 @@ $db = new MysqliDb();
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <main>
     <div class="container-fluid">
+    <hr>
+        <img src="<?= settings()['logo'] ?>" alt="">
+        <span style="font-size: 30px; color:chocolate; margin-left: 200px;"><strong><i>BEST BUY SUPER SHOP</i></strong></span> <br>
+        <span><i>কিনুন সাচ্ছন্দ্যে।</i></span>
+        
+
+        <?php
+        require __DIR__ . '/components/menubar.php';
+        ?>
+
         <div class="vh-100">
 
             <div class="row">
@@ -55,7 +65,7 @@ $db = new MysqliDb();
                                         <th class="col-2">Price</th>
                                         <th class="col-1">Qty</th>
                                         <th class="col-2">Total</th>
-                                        <th class="col-1">E/D</th>
+                                        <th class="col-1">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody id="add_product_container">
@@ -180,10 +190,10 @@ $db = new MysqliDb();
                 $row.find('.totaltaxin').text(financial(textotal));
                 updateTotal();
             });
-            // nettotal creat
+            // nettotal create
             function updateTotal() {
 
-                // nettotal creat
+                // nettotal create
                 var nettotal = 0;
                 var grenTotal = 0;
                 var discount = 0;
@@ -211,9 +221,14 @@ $db = new MysqliDb();
                 $(this).closest('tr').remove();
                 updateTotal();
             });
+            //Cacncel button
             $(document).on('click', '#selCancel', function(e) {
                 e.preventDefault();
                 $("#add_product_container").empty();
+                $("#reference").val('');
+                $("#payment_method").val('1');
+                // $("#txnidin").val('');
+                $("#txnidin").addClass('d-none').val('');
                 updateTotal();
             });
             $.post('account_pay_mathod.php', function(data) {
@@ -275,6 +290,13 @@ $db = new MysqliDb();
                 },
                 success: function(response) {
                     console.log(response)
+                    $("#add_product_container").empty();
+                $("#reference").val('');
+                $("#payment_method").val('1');
+                // $("#txnidin").val('');
+                $("#txnidin").addClass('d-none').val('');
+                alert('Order placed successfully');
+                updateTotal();
                 }
             });
         });

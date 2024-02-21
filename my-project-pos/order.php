@@ -223,9 +223,10 @@ $page = "Home";
                                     $('#payment_method').val('cash');
                                     $('#trxId').val('');
                                     $('#trxId').addClass('d-none');
-                                    // alert('Order placed successfully');
+                                    alert('Order placed successfully');
                                 }
                             });
+                        })
                     });
                 </script>
             </body>
