@@ -3,28 +3,54 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 require __DIR__ . '/vendor/autoload.php';
-use App\User;
-use App\model\Category;
 $db = new MysqliDb();
-?>
-<?php
-
 if(isset($_POST['orders'])){
     $orders = $_POST['orders'];
+    $costomerID = $db->escape($_POST['customer_id'])??1;
+    $nettotal = $db->escape($_POST['nettotal']);
     $grandtotal = $db->escape($_POST['grandtotal']);
-    $comment = $db->escape($_POST['comment']);
+    $discount = $db->escape($_POST['discount']);
+    $grandTAX = $db->escape($_POST['grandTAX']);
+    $reference = $db->escape($_POST['reference']);
     $payment_method = $db->escape($_POST['payment_method']);
-    $trxId =$db->escape( $_POST['trxId']);
-
-    $html = "";
-    echo "<h4><i>Payment Receipt</i></h4>"."<hr>";
-    foreach ($orders as $order) {      
-        $html .=  "<b>Product Name:</b> ". $order['pname'] . "<hr>" ."<b> Quantity: </b>". $order['qty'] ."<hr>";
+    $trxID = $db->escape($_POST['trxID']);
+try{
+    $db->startTransaction();
+    // invoice
+    $data = [
+        'customer_id' => $costomerID,
+        'total'=> $nettotal,
+        'total_tax'=>$grandTAX,
+        'discount'=> $discount,
+        'pay_amount' => $grandtotal,
+        'comment' => $reference,
+        'payment_type' => $payment_method,
+        'trxid' => $trxID,
+    ];
+    $db->insert('invoice',$data);
+    $invoiceid = $db->getInsertId();
+    foreach ($orders as $order) {
+        $datas = [
+            'invoice_id' => $invoiceid,
+            'product_id' => $order['pid'],
+            'quantity' => $order['qty'],
+            'price' => $order['price'],
+            'total' => $order['total'],
+        ];
+        $db->insert('invoicedetails',$datas);
     }
-    $html .= "<b> Grand Total :</b> " . $grandtotal . "<hr>";
-    $html .= "<b> Reference : </b>" . $comment . "<hr>";
-    $html .= "<b> Payment Method : </b>" . $payment_method . "<hr>";
-    $html .= "<b> Transaction ID : </b>" . $trxId . "<hr>";
-    echo $html;
+    $db->commit();
+    echo "Insert Successfull";
+}catch(\Throwable $th){
+    echo $th->getMessage();
+    $db->rollback();
+    echo "Sala Ojoy";
 }
-?>
+    // $html = "";
+    // foreach($orders as $order){
+    //     $html.= 'ID :'.$order['pid']." Qty".$order['qty']." Total: ".$order['total']."<br>";
+    // }
+
+
+    // echo $html;
+}

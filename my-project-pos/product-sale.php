@@ -3,35 +3,16 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 require __DIR__ . '/vendor/autoload.php';
+$page = "Customer Sale Point";
 require __DIR__ . '/components/header.php';
 $db = new MysqliDb();
 ?>
-<title>BEST BUY SUPER SHOP</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" integrity="sha512-ELV+xyi8IhEApPS/pSj66+Jiw+sOT1Mqkzlh8ExXihe4zfqbWkxPRi8wptXIO9g73FSlhmquFlUOuMSoXz5IRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-<style>
-    .scroller {
-  width: 700px;
-  height: 300px;
-  /* overflow: scroll; */
-  overflow-y: scroll;
-  /* overflow-x: scroll; */
-  scrollbar-width: thin;
-}
-</style>
 <main>
     <div class="container-fluid">
-    <hr>
-        <img src="<?= settings()['logo'] ?>" alt="">
-        <span style="font-size: 30px; color:chocolate; margin-left: 200px;"><strong><i>BEST BUY SUPER SHOP</i></strong></span> <br>
-        <span><i>কিনুন সাচ্ছন্দ্যে।</i></span>       
-
-        <?php
-        require __DIR__ . '/components/menubar.php';
-        ?>
-
-
         <div class="vh-100">
+
             <div class="row">
                 <div class="col-2 border mh-100">a</div>
                 <div class="col-4 border mh-100">
@@ -41,39 +22,32 @@ $db = new MysqliDb();
                         </div>
                     </form>
                 </div>
-                <div class="col-6 border">
+                <div class="col-6 border bg-secondary bg-opacity-25">
                     <div class="container">
                         <form action="">
                             <div class="d-flex justify-content-around">
-                                <div class="input-group p-1">
-                                    <input class="form-control" type="text" name="" id="SearchInCustomer" placeholder="Customer name/id">
-                                    <!-- <button class="input-group-text btn btn-secondary btn-outline-info"><i class="bi bi-search"></i></button> -->
-                                </div>
-                                <div class="input-group p-1">
-                                    <!-- barcode search  -->
-                                    <input class="form-control" type="number" name="" id="SearchInQR" placeholder="Barcode">
-                                    <!-- <button class="input-group-text btn btn-secondary btn-outline-info"><i class="bi bi-search"></i></button> -->
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="input-group p-1">
+                                            <input class="form-control" type="text" name="" id="SearchInCustomer" placeholder="Customer name/id">
+                                            <input type="text" style="width: 65%;" class="input-group-text" name="" id="customer_id" readonly value="1">
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="input-group p-1">
+                                            <!-- barcode search  -->
+                                            <input class="form-control" type="number" name="" id="SearchInQR" placeholder="Barcode">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </form>
                         <!-- customer set  up here -->
                         <div>
-                            <!-- <table class="table table-responsive">
-                            <tr>
-                                <th>ID</th>
-                                <th>Castomr Name</th>
-                                <th>etc</th>
-                            </tr>
-                            <tr>
-                                <td>0111</td>
-                                <td>Nameee</td>
-                                <td>0000000</td>
-                            </tr>
-                        </table> -->
                         </div>
                         <!-- barcode search and add to table -->
-                        <div class="scroller">
-                            <table class="table table-bordered table-striped ">
+                        <div class="">
+                            <table style="height: 400px;" class="table table-sm table-bordered table-striped">
                                 <thead>
                                     <tr class="row">
                                         <th class="col-2">Barcode</th>
@@ -91,41 +65,56 @@ $db = new MysqliDb();
                         </div>
                         <div>
                             <div class="row">
-                                <div class="col-4">
-                                    customer
+                                <div class="col-5">
+                                    <!-- Payment column  -->
+
+                                    <div class="input-group">
+                                        <span class="input-group-text">Ref:</span><input type="text" class="form-control" name="" id="reference">
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-text">Payment:</span>
+                                        <!-- payment methode include -->
+                                        <select name="payment_method" id="payment_method" class="form-control">
+                                        </select>
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-text">Txn:ID</span>
+                                        <input type="text" id="txnidin" class="d-none form-control" name="txnidin">
+                                    </div>
+                                    <!-- Payment column end  -->
+
+
                                 </div>
-                                <div class="col-6">
-                                <table class="table table-bordered table-striped">
-                                <tr class="row">
-                                    <th class="col-9">Total</th>
-                                    <th class="col-3 text-end" id="nettotal"></th>
-                                </tr>
-                                <tr class="row">
-                                    <th class="col-9">TAX</th>
-                                    <th class="col-3 text-end" id="grandTAX"></th>
-                                </tr>
-                                <tr class="row">
-                                    <th class="col-9">Discount</th>
-                                    <th class="col-3 text-end" id="discount"></th>
-                                </tr>
-                                <tr class="row">
-                                    <th class="col-9">Pay Amount</th>
-                                    <th class="col-3 text-end" id="payamount"></th>
-                                </tr>
-                            </table>
+                                <div class="col-5">
+                                    <table class="table table-bordered table-striped table-sm">
+                                        <tr class="row">
+                                            <th class="col-6">Total</th>
+                                            <th class="col-6 text-end" id="nettotal">0.00</th>
+                                        </tr>
+                                        <tr class="row">
+                                            <th class="col-6">TAX</th>
+                                            <th class="col-6 text-end" id="grandTAX">0.00</th>
+                                        </tr>
+                                        <tr class="row">
+                                            <th class="col-6">Discount</th>
+                                            <th class="col-6 text-end" id="discount">0.00</th>
+                                        </tr>
+                                        <tr class="row">
+                                            <th class="col-6">Pay Amount</th>
+                                            <th class="col-6 text-end" id="payamount">0.00</th>
+                                        </tr>
+                                    </table>
                                 </div>
                                 <div class="col-2">
                                     <span class="flex align-items-end">
-
-                                    
-                                    <form action="">
-                                        <input type="button" class="form-control btn btn-outline-warning p-1" value="Clear">
-                                        <input type="button" class="form-control btn btn-outline-success p-1" value="Print">
-                                    </form>
+                                        <form action="">
+                                            <input type="button" id="selCancel" class="form-control btn btn-outline-warning p-1" value="Cancel">
+                                            <input type="button" id="placeOrder" class="form-control btn btn-outline-success p-1" value="Place Order">
+                                        </form>
                                     </span>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -145,12 +134,11 @@ $db = new MysqliDb();
             return Number.parseFloat(x).toFixed(2);
         }
         $(function() {
-            // autocomplete
+            // autocomplete in product
             $("#SearchInQR").autocomplete({
                 source: "search_qr.php",
                 minLength: 1,
                 select: function(event, ui) {
-                    //console.log(ui);
                     var id = ui.item.id;
                     addProduct(id);
                 }
@@ -167,10 +155,11 @@ $db = new MysqliDb();
                         response = JSON.parse(response);
                         // add new product row in table
                         $html = '<tr class="row ">';
+                        $html += '<td class="productID d-none">' + response.id + '</td>';
                         $html += '<td class="col-2">' + response.barcode + '</td>';
                         $html += '<td class="col-4">' + response.name + '</td>';
                         $html += '<td class="pprice col-2 text-end">' + response.price + '</td>';
-                        $html += '<td class="col-1 p-1"><input class="quantity form-control pt-1 pe-1" type="number" name="quantity" value="1" min="1" max="' + response.quantity + '"></td>';
+                        $html += '<td class="col-1 p-1"><input class="quantity form-control form-control-sm pt-1 pe-1" type="number" name="quantity" value="1" min="1" max="' + response.quantity + '"></td>';
                         $html += '<td class="itemtotals col-2 text-end">' + response.price + '</td>';
                         $html += '<td class="col-1" ><a href="#" class="deleteproduct" data-id="' + response.id + '"><i class="bi bi-trash3"></i></a></td>';
                         $html += '</tr>';
@@ -222,6 +211,76 @@ $db = new MysqliDb();
                 $(this).closest('tr').remove();
                 updateTotal();
             });
+            $(document).on('click', '#selCancel', function(e) {
+                e.preventDefault();
+                $("#add_product_container").empty();
+                updateTotal();
+            });
+            $.post('account_pay_mathod.php', function(data) {
+                var ac_name = JSON.parse(data);
+                // console.log(ac_name);
+                $.each(ac_name, function(index, account) {
+                    $htmlop = '<option value="' + account.id + '">' + account.name + '</option>';
+                    $('#payment_method').append($htmlop)
+                });
+            });
+            //payment method
+            $("#payment_method").change(function() {
+                var payment_method = $(this).val();
+                if (payment_method == '1') {
+                    $("#txnidin").addClass('d-none');
+                } else {
+                    $("#txnidin").removeClass('d-none');
+                }
+            });
         });
+        // place order
+        $(document).on('click', '#placeOrder', function() {
+            var payment_method = $('#payment_method').val();
+            if (payment_method == 1) {
+                var trxID = '';
+            } else {
+                var trxID = $('#txnidin').val();
+                if (trxID == '') {
+                    alert('Please enter Trx ID');
+                    return;
+                }
+            }
+            var order = [];
+            $('.productID').each(function() {
+                var productID = $(this).text();
+                var qty = $(this).closest('tr').find('.quantity').val();
+                var price = $(this).closest('tr').find('.pprice').text();
+                var total = $(this).closest('tr').find('.itemtotals').text();
+                order.push({
+                    pid: productID,
+                    price: price,
+                    qty: qty,
+                    total: total
+                })
+            });
+            $.ajax({
+                url: 'place_order.php',
+                method: 'post',
+                data: {
+                    orders: order,
+                    customer_id: $('#customer_id').val(),
+                    nettotal: $('#nettotal').text(),
+                    grandtotal: $('#payamount').text(),
+                    discount: $('#discount').text(),
+                    grandTAX: $('#grandTAX').text(),
+                    reference: $('#reference').val(),
+                    payment_method: payment_method,
+                    trxID: trxID
+                },
+                success: function(response) {
+                    console.log(response)
+                }
+            });
+        });
+
+
+        //  start function end
+        // });
     </script>
 </main>

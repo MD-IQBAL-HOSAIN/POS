@@ -28,4 +28,3 @@ if (isset($_GET['term'])){
 	}
     echo json_encode($return_arr);
 }
-?>
