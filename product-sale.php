@@ -3,7 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 require __DIR__ . '/vendor/autoload.php';
-$page = "Customer Sale Point";
+$page = "Sale Page";
 require __DIR__ . '/components/header.php';
 $db = new MysqliDb();
 ?>
