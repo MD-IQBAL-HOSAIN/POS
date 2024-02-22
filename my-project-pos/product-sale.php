@@ -13,7 +13,7 @@ $db = new MysqliDb();
     .scroll {
         /* width: 550px; */
         height: 450px;
-        background-color: coral;
+        background-color: bisque;
         overflow-y: scroll;
         overflow-x: none;
     }
@@ -58,26 +58,9 @@ $db = new MysqliDb();
                                     <th>Add+</th>
                                 </tr>
                             </thead>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel"><img src="images/shark.png" alt=""><i>Best Buy Super Shop</i></h1>
-                                            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-                                        </div>
-                                        <div class="modal-body">
-                                            <tbody id="product_table" class="overflow-y-scroll h-100">
+                            <tbody id="product_table" class="overflow-y-scroll h-100">
 
-                                            </tbody>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Print</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                            </tbody>
                         </table>
 
                     </div>
