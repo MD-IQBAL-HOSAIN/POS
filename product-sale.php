@@ -13,7 +13,7 @@ $db = new MysqliDb();
     .scroll {
         /* width: 550px; */
         height: 450px;
-        background-color: bisque;
+        background-color: coral;
         overflow-y: scroll;
         overflow-x: none;
     }
@@ -58,9 +58,22 @@ $db = new MysqliDb();
                                     <th>Add+</th>
                                 </tr>
                             </thead>
-                            <tbody id="product_table" class="overflow-y-scroll h-100">
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel"><img src="images/shark.png" alt=""><i>Best Buy Super Shop</i></h1>
+                                            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                                        </div>
+                                        <div class="modal-body">
+                                            <tbody id="product_table" class="overflow-y-scroll h-100">
 
-                            </tbody>
+                                            </tbody>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </table>
 
                     </div>
@@ -174,14 +187,13 @@ $db = new MysqliDb();
             return Number.parseFloat(x).toFixed(2);
         }
         //01 function start
-        $(function() {
+        function productList() {
 
             $.post('product_select.php', function(data) {
                 // console.log(data);
                 var prolist = JSON.parse(data);
-
+                $htmlpro = '';
                 $.each(prolist, function(index, prolist) {
-                    $htmlpro = '';
                     $htmlpro += '<tr>';
                     $htmlpro += '<td class="proid d-none">' + prolist.id + '</td>';
                     $htmlpro += '<td class="barcode">' + prolist.barcode + '</td>';
@@ -190,12 +202,13 @@ $db = new MysqliDb();
                     $htmlpro += '<td>' + prolist.quantity + '</td>';
                     $htmlpro += '<td><button class="addbutton btn btn-secondary btn-outline-success text-white"><i class="bi bi-cart-plus"></i></button></td>';
                     $htmlpro += '</tr>';
-                    $('#product_table').append($htmlpro);
+                    //$('#product_table').append($htmlpro);
+                    $('#product_table').html($htmlpro);
                 });
             });
-        });
+        };
         //end function 
-
+        productList();
         //02 function start customer
         $(function() {
 
@@ -351,7 +364,6 @@ $db = new MysqliDb();
 
         // place order
         $(document).on('click', '#placeOrder', function() {
-
             var payment_method = $('#payment_method').val();
             if (payment_method == 1) {
                 var trxID = '';
@@ -389,19 +401,19 @@ $db = new MysqliDb();
                     payment_method: payment_method,
                     trxID: trxID
                 },
-
-
                 success: function(response) {
                     console.log(response)
                     // call-back retrun
                     // on-click all add content remove
-                    $("#add_product_container").empty();
+                    /* $("#add_product_container").empty();
                     $('#reference').val('');
                     $('#payment_method').val('1');
                     $('#txnidin').val('');
                     $('#txnidin').addClass('d-none');
                     alert('Place Order successfully !!');
-                    updateTotal();
+                    updateTotal(); */
+                    alert('Place Order successfully !!');
+                    productList();
                 }
             });
         });
