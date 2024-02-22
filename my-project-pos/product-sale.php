@@ -7,32 +7,37 @@ $page = "Customer Sale Point";
 require __DIR__ . '/components/header.php';
 $db = new MysqliDb();
 ?>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" integrity="sha512-ELV+xyi8IhEApPS/pSj66+Jiw+sOT1Mqkzlh8ExXihe4zfqbWkxPRi8wptXIO9g73FSlhmquFlUOuMSoXz5IRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<style>
+    .scroll {
+        /* width: 550px; */
+        height: 450px;
+        background-color: coral;
+        overflow-y: scroll;
+        overflow-x: none;
+    }
+</style>
 <main>
     <div class="container-fluid bg-success-subtle">
-            <!-- header side -->
-            <div class="container-fluid">
-                <div class="row">
-                    <?php
-                    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == 'true') {
-                    ?>
-                        <a class="btn btn-info w-25" href="product-sale.php">Home Page</a>
-                        <a class="btn btn-info w-25" href="logout.php">Logout</a>
-                    <?php
-                    } else {
-                    ?>
-                        <a href="registration.php">Sign Up</a>
-                        <a href="login.php">Sign In</a>
-                    <?php
-                    }
-                    ?>
-                </div>
+        <!-- header side -->
+        <hr>
+        <div class="row" style="background-color: whitesmoke">
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <img src="<?= settings()['logo'] ?>" alt=""> <br>
+                <span><i>কিনুন সাচ্ছন্দ্যে।</i></span>
             </div>
-            <div class="">
-            <div class="row vh-100">
-                <div class="col-2">
-                    side bar
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <span style="font-size: 50px; color:chocolate; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"><strong><i>BEST BUY SUPER SHOP</i></strong></span> <br>
+            </div>
+        </div>
+        <?php require __DIR__ . '/components/menubar.php'; ?>
+
+        <div class="">
+            <div class="row">
+                <div class="col-2 bg-secondary">
+                    <h1 class="text-white">Side Bar</h1>
+                    <hr>
                 </div>
                 <div class="col-5 ">
                     <form action="">
@@ -41,6 +46,8 @@ $db = new MysqliDb();
                         </div>
                     </form>
                     <div id="protablecon" class="overflow-y-scroll h-50">
+                        <h1 style="text-align: center;">ALL PRODUCTS</h1>
+                        <hr>
                         <table class="table table-sm table-hover table-striped table-border">
                             <thead>
                                 <tr>
@@ -51,14 +58,31 @@ $db = new MysqliDb();
                                     <th>Add+</th>
                                 </tr>
                             </thead>
-                            <tbody id="product_table" class="overflow-y-scroll h-50">
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel"><img src="images/shark.png" alt=""><i>Best Buy Super Shop</i></h1>
+                                            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                                        </div>
+                                        <div class="modal-body">
+                                            <tbody id="product_table" class="overflow-y-scroll h-100">
 
-                            </tbody>
+                                            </tbody>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Print</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </table>
 
                     </div>
                 </div>
-                <div class="col-5 border bg-secondary bg-opacity-25">
+                <div class="col-5 border bg-primary bg-opacity-25">
                     <div class="container">
                         <form action="">
                             <div class="row">
@@ -78,8 +102,8 @@ $db = new MysqliDb();
                             </div>
                         </form>
                         <!-- barcode search and add to table -->
-                        <div class="" style="height: 400px;">
-                            <table class="table table-sm table-bordered table-hover table-striped ">
+                        <div class="scroll opacity-15">
+                            <table class="table table-bordered table-hover table-striped ">
                                 <thead>
                                     <tr class="row text-center">
                                         <th class="col-2">Barcode</th>
@@ -87,7 +111,7 @@ $db = new MysqliDb();
                                         <th class="col-2">Price</th>
                                         <th class="col-1">Qty</th>
                                         <th class="col-2">Total</th>
-                                        <th class="col-1 ">E/D</th>
+                                        <th class="col-1 ">Del</th>
                                     </tr>
                                 </thead>
                                 <tbody id="add_product_container">
@@ -100,7 +124,7 @@ $db = new MysqliDb();
                         <!-- buttom row in col 3  -->
                         <div class="">
                             <div class="row align-items-center bg-info p-2">
-                                <div class="col-5 p-3">
+                                <div class="col-6 p-3">
                                     <!-- Payment column  -->
 
                                     <div class="input-group">
@@ -118,7 +142,7 @@ $db = new MysqliDb();
                                     </div>
                                     <!-- Payment column end  -->
                                 </div>
-                                <div class="col-5">
+                                <div class="col-6">
                                     <table class="table table-bordered table-striped table-sm">
                                         <tr class="row">
                                             <th class="col-6">Total</th>
@@ -138,14 +162,14 @@ $db = new MysqliDb();
                                         </tr>
                                     </table>
                                 </div>
-                                <div class="col-2">
-                                    <span class="flex align-items-end">
-                                        <form action="">
-                                            <input type="button" id="selCancel" class="form-control btn btn-outline-warning p-1" value="Cancel">
-                                            <input type="button" id="placeOrder" class="form-control btn btn-outline-success p-1" value="Place Order">
-                                        </form>
-                                    </span>
-                                </div>
+                            </div>
+                            <div class="col bg-secondary">
+                                <span class="flex align-items-end">
+                                    <form action="">
+                                        <input type="button" id="selCancel" class="form-control btn btn-outline-warning p-1" value="Cancel">
+                                        <input type="button" id="placeOrder" class="form-control btn btn-outline-success p-1 text-white" value="Place Order">
+                                    </form>
+                                </span>
                             </div>
                         </div>
 
@@ -186,7 +210,7 @@ $db = new MysqliDb();
                     $('#product_table').append($htmlpro);
                 });
             });
-        }); 
+        });
         //end function 
 
         //02 function start customer
@@ -225,7 +249,7 @@ $db = new MysqliDb();
         //03 function start 
         $(function() {
             // tobali to add product
-            $(document).on('click','.addbutton',function(e){
+            $(document).on('click', '.addbutton', function(e) {
                 e.preventDefault();
                 let id = $(this).closest('tr').find('.proid').text();
                 console.log(id);
@@ -303,7 +327,7 @@ $db = new MysqliDb();
 
 
             }
-            
+
             //   
 
             // delete product
@@ -344,7 +368,7 @@ $db = new MysqliDb();
 
         // place order
         $(document).on('click', '#placeOrder', function() {
-            
+
             var payment_method = $('#payment_method').val();
             if (payment_method == 1) {
                 var trxID = '';
@@ -393,11 +417,10 @@ $db = new MysqliDb();
                     $('#payment_method').val('1');
                     $('#txnidin').val('');
                     $('#txnidin').addClass('d-none');
-                    alert('submitted successfully !!');
+                    alert('Place Order successfully !!');
                     updateTotal();
                 }
             });
         });
-
     </script>
 </main>
