@@ -6,7 +6,7 @@ if (!function_exists('settings')) {
         return [
             'root'  => $root,
             'companyname'=> 'Shark Super Shop',
-            'logo'=>$root."admin/assets/img/shark2.jpeg",
+            'logo'=>$root."admin/assets/img/logo.png",
             'homepage'=> $root,
             'adminpage'=>$root.'admin/',
             'hostname'=> 'localhost',

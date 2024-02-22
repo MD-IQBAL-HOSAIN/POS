@@ -11,9 +11,8 @@ $db = new MysqliDb();
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <style>
     .scroll {
-        /* width: 550px; */
         height: 450px;
-        background-color: coral;
+        /* background-color: coral; */
         overflow-y: scroll;
         overflow-x: none;
     }
@@ -186,7 +185,7 @@ $db = new MysqliDb();
         function financial(x) {
             return Number.parseFloat(x).toFixed(2);
         }
-        //01 function start
+        //01 main function start
         function productList() {
 
             $.post('product_select.php', function(data) {
@@ -206,11 +205,32 @@ $db = new MysqliDb();
                     $('#product_table').html($htmlpro);
                 });
             });
-        };
-        //end function 
-        productList();
-        //02 function start customer
-        $(function() {
+         };
+         //end function 
+         productList();
+         //02 function start update
+         function updateTotal() {
+            // nettotal creat
+            var nettotal = 0;
+            var grenTotal = 0;
+            var discount = 0;
+            $('.itemtotals').each(function() {
+                nettotal += parseFloat($(this).text());
+            });
+
+            $('#nettotal').text(financial(nettotal));
+            // grandTax 
+            $('#grandTAX').text(financial(nettotal * .05));
+            //grand total
+            grenTotal = parseFloat($('#nettotal').text()) + parseFloat($('#grandTAX').text());
+            // console.log(grenTotal);
+            if (grenTotal >= 1000) {
+                discount = grenTotal * 0.01;
+            }
+            $('#discount').text(financial(discount));
+            $('#payamount').text(financial(Math.round(grenTotal - discount)));
+         }
+         $(function() {
 
             // autocomplete in customer
 
@@ -240,11 +260,11 @@ $db = new MysqliDb();
                     }
                 });
             };
-        });
+         });
 
-        //03 function start 
-        $(function() {
-            // tobali to add product
+         //03 function start 
+         $(function() {
+            // table to add product
             $(document).on('click', '.addbutton', function(e) {
                 e.preventDefault();
                 let id = $(this).closest('tr').find('.proid').text();
@@ -299,30 +319,7 @@ $db = new MysqliDb();
                 updateTotal();
             });
             // nettotal creat
-            function updateTotal() {
 
-                // nettotal creat
-                var nettotal = 0;
-                var grenTotal = 0;
-                var discount = 0;
-                $('.itemtotals').each(function() {
-                    nettotal += parseFloat($(this).text());
-                });
-
-                $('#nettotal').text(financial(nettotal));
-                // grandTax 
-                $('#grandTAX').text(financial(nettotal * .05));
-                //grand total
-                grenTotal = parseFloat($('#nettotal').text()) + parseFloat($('#grandTAX').text());
-                // console.log(grenTotal);
-                if (grenTotal >= 1000) {
-                    discount = grenTotal * 0.01;
-                }
-                $('#discount').text(financial(discount));
-                $('#payamount').text(financial(Math.round(grenTotal - discount)));
-
-
-            }
 
             //   
 
@@ -359,11 +356,11 @@ $db = new MysqliDb();
                     $("#txnidin").removeClass('d-none');
                 }
             });
-        });
+         });
 
 
-        // place order
-        $(document).on('click', '#placeOrder', function() {
+         // place order
+         $(document).on('click', '#placeOrder', function(){
             var payment_method = $('#payment_method').val();
             if (payment_method == 1) {
                 var trxID = '';
@@ -405,14 +402,13 @@ $db = new MysqliDb();
                     console.log(response)
                     // call-back retrun
                     // on-click all add content remove
-                    /* $("#add_product_container").empty();
+                    $("#add_product_container").empty();
                     $('#reference').val('');
                     $('#payment_method').val('1');
                     $('#txnidin').val('');
                     $('#txnidin').addClass('d-none');
                     alert('Place Order successfully !!');
-                    updateTotal(); */
-                    alert('Place Order successfully !!');
+                    updateTotal();
                     productList();
                 }
             });

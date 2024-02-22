@@ -167,69 +167,7 @@ if (!Admin::Check()) {
                                 </tr>
                             </table>
                         </div>
-                    </div>
-                    <!-- <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-table me-1"></i>
-                            DataTable Example
-                        </div>
-                        <div class="card-body">
-                            <table id="datatablesSimple">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Bijoy Chowdhury</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>taka: 320,800</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Kawser Ahmed</td>
-                                        <td>Accountant</td>
-                                        <td>Tokyo</td>
-                                        <td>63</td>
-                                        <td>2011/07/25</td>
-                                        <td>Taka: 170,750</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Faisal IBN Rafiq</td>
-                                        <td>Junior Technical Author</td>
-                                        <td>San Francisco</td>
-                                        <td>66</td>
-                                        <td>2009/01/12</td>
-                                        <td>Taka: 86,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sadikun Nahar</td>
-                                        <td>Senior Javascript Developer</td>
-                                        <td>Edinburgh</td>
-                                        <td>22</td>
-                                        <td>2012/03/29</td>
-                                        <td>Taka: 433,060</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Alia vat</td>
-                                        <td>Accountant</td>
-                                        <td>Tokyo</td>
-                                        <td>33</td>
-                                        <td>2008/11/28</td>
-                                        <td>Taka: 162,700</td>
-                                    </tr>                                   
-                                </tbody>
-                            </table>
-                        </div>
-                    </div> -->
+                    </div>                  
                 </div>
                 <!-- changed content  ends-->
             </main>
