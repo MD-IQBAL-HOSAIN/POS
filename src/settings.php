@@ -2,7 +2,7 @@
 if (!function_exists('settings')) {
     function settings()
     {
-       $root = "http://localhost/ROUND57/PHP/r57-POS/"; 
+       $root = "http://localhost/A_PROJECT/my_projects/"; 
         return [
             'root'  => $root,
             'companyname'=> 'Shark Super Shop',
