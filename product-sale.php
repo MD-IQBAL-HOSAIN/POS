@@ -38,7 +38,7 @@ $db = new MysqliDb();
     <div class="container-fluid bg-success-subtle">
         <!-- header side -->
         <hr>
-        <div class="row" style="background-color: whitesmoke">
+        <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4">
                 <img src="<?= settings()['logo'] ?>" alt=""> <br>
                 <span><i>কিনুন সাচ্ছন্দ্যে।</i></span>
