@@ -21,8 +21,11 @@
                 </a>
                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
+                        <!-- product categories -->
                         <a class="nav-link" href="category_all.php"><i class="bi bi-bank"></i>Product categories</a>
+                        <a class="nav-link" href="select.php"><i class="bi bi-bank"></i>Product_in_up_Del</a>
                         <!-- <a class="nav-link" href="layout-static.html">All</a> -->
+
                         <a class="nav-link" href="customer_list.php"><i class="bi bi-person-workspace"></i>Customers</a>
                         <a class="nav-link" href="employee.php"><i class="bi bi-person-lines-fill"></i>Employee_List</a>
                         <a class="nav-link" href="invoice.php"><i class="bi bi-receipt-cutoff"></i>Invoice</a>
