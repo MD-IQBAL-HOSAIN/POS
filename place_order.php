@@ -35,6 +35,15 @@ if (isset($_POST['orders'])) {
         $db->insert('invoice', $invoiceData);
         $invoiceId = $db->getInsertId();
 
+        //Get the current balance in acount
+        $currentBalance = $db->where('id',$payment_method)->getValue('accounts','balance');
+        
+        // Calculate the new balance
+        $newBalance = $currentBalance + $grandtotal;
+
+        $getdata = ['balance' => $newBalance];
+        $db->where('id', $payment_method)->update('accounts', $getdata);
+
         // Inserting invoice details
         foreach ($orders as $order) {
             $invoiceDetails = [

@@ -11,10 +11,27 @@ $db = new MysqliDb();
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <style>
     .scroll {
-        height: 450px;
+        height: 350px;
         /* background-color: coral; */
         overflow-y: scroll;
         overflow-x: none;
+        scroll-behavior: smooth;
+    }
+
+    /* #positioning{
+    position: relative;
+} */
+    #posbody {
+        margin: 0;
+        padding: 0;
+        font-size: small;
+        /* position: static;
+         bottom: 0; 
+        top: 0; */
+    }
+    .headinghang{
+        position: sticky;
+        top:0;
     }
 </style>
 <main>
@@ -31,8 +48,8 @@ $db = new MysqliDb();
             </div>
         </div>
         <?php require __DIR__ . '/components/menubar.php'; ?>
-
-        <div class="">
+        <hr id="positioning">
+        <div id="posbody" class="headinghang">
             <div class="row">
                 <div class="col-2 bg-secondary">
                     <h1 class="text-white">Side Bar</h1>
@@ -44,12 +61,11 @@ $db = new MysqliDb();
                             <input class="form-control p-1" type="text" name="" id="searchProducts" placeholder="Product search">
                         </div>
                     </form>
-                    <div id="protablecon" class="overflow-y-scroll h-50">
-                        <h1 style="text-align: center;">ALL PRODUCTS</h1>
-                        <hr>
+                    <div id="protablecon" class="scroll">
+                        <div class="h4 text-center fw-bolder">ALL PRODUCTS</div>
                         <table class="table table-sm table-hover table-striped table-border">
                             <thead>
-                                <tr>
+                                <tr class="headinghang table-success">
                                     <th>Code</th>
                                     <th>Name</th>
                                     <th>Price</th>
@@ -77,7 +93,7 @@ $db = new MysqliDb();
 
                     </div>
                 </div>
-                <div class="col-5 border bg-primary bg-opacity-25">
+                <div class="col-5 border bg-primary bg-opacity-10">
                     <div class="container">
                         <form action="">
                             <div class="row">
@@ -97,48 +113,55 @@ $db = new MysqliDb();
                             </div>
                         </form>
                         <!-- barcode search and add to table -->
-                        <div class="scroll opacity-15">
-                            <table class="table table-bordered table-hover table-striped ">
-                                <thead>
-                                    <tr class="row text-center">
-                                        <th class="col-2">Barcode</th>
-                                        <th class="col-4">Product</th>
-                                        <th class="col-2">Price</th>
-                                        <th class="col-1">Qty</th>
-                                        <th class="col-2">Total</th>
-                                        <th class="col-1 ">Del</th>
+                        <div class="scroll">
+                            <table class="table table-sm table-bordered table-hover table-striped">
+                                <colgroup>
+                                    <col width="10%">
+                                    <col width="38%">
+                                    <col width="15%">
+                                    <col width="12%">
+                                    <col width="20%">
+                                    <col width="5%">
+                                </colgroup>
+                                <thead class="headinghang table-success">
+                                    <tr class="text-center">
+                                        <th>Barcode</th>
+                                        <th>Product</th>
+                                        <th>Price</th>
+                                        <th>Qty</th>
+                                        <th>Total</th>
+                                        <th>Del</th>
                                     </tr>
                                 </thead>
-                                <tbody id="add_product_container">
+                                <tbody class="" id="add_product_container">
 
                                 </tbody>
                             </table>
+
                         </div>
 
                         <hr>
-                        <!-- buttom row in col 3  -->
+                        <!-- aria--- account all total count and cancel place order  -->
                         <div class="">
-                            <div class="row align-items-center bg-info p-2">
-                                <div class="col-6 p-3">
-                                    <!-- Payment column  -->
-
+                            <div class="row container">
+                                <!-- AC/payment option -->
+                                <div class="col-sm-6">
                                     <div class="input-group">
-                                        <span class="input-group-text">Ref:</span><input type="text" class="form-control" name="" id="reference">
+                                        <span class="input-group-text">Ref:</span><input type="text" class="form-control form-control-sm" name="" id="reference">
                                     </div>
                                     <div class="input-group">
-                                        <span class="input-group-text">Payment:</span>
-                                        <!-- payment methode include -->
-                                        <select name="payment_method" id="payment_method" class="form-control">
+                                        <span class="input-group-text form-control-sm">Payment:</span>
+                                        <select name="payment_method" id="payment_method" class="form-select form-select-sm">
                                         </select>
                                     </div>
                                     <div class="input-group">
-                                        <span class="input-group-text">Txn:ID</span>
-                                        <input type="text" id="txnidin" class="d-none form-control" name="txnidin">
+                                        <span class="input-group-text form-control-sm">Txn:ID</span>
+                                        <input type="text" id="txnidin" class="d-none form-control form-control-sm" name="txnidin">
                                     </div>
-                                    <!-- Payment column end  -->
                                 </div>
-                                <div class="col-6">
-                                    <table class="table table-bordered table-striped table-sm">
+                                <!-- total amonunt tax discount etc -->
+                                <div arianame="count_of_all_total" class="col-sm-6">
+                                    <table class="table table-bordered table-sm">
                                         <tr class="row">
                                             <th class="col-6">Total</th>
                                             <th class="col-6 text-end" id="nettotal">0.00</th>
@@ -158,16 +181,20 @@ $db = new MysqliDb();
                                     </table>
                                 </div>
                             </div>
-                            <div class="col bg-secondary">
-                                <span class="flex align-items-end">
-                                    <form action="">
-                                        <input type="button" id="selCancel" class="form-control btn btn-outline-warning p-1" value="Cancel">
-                                        <input type="button" id="placeOrder" class="form-control btn btn-outline-success p-1 text-white" value="Place Order">
-                                    </form>
-                                </span>
+                            <!-- form_Plase_order_and_Cancel -->
+                            <div arianame="form_Plase_order_and_Cancel" class="bg-success bg-opacity-25 rounded-2">
+                                <form action="">
+                                    <div class="d-flex flex-row mb-2">
+                                        <div class="p-2 flex-fill">
+                                            <input type="button" id="selCancel" class="fw-bold fs-6 form-control btn-light btn btn-outline-warning text-black font-monospace" value="Cancel">
+                                        </div>
+                                        <div class="p-2 flex-fill">
+                                            <input type="button" id="placeOrder" class="fw-bold fs-6 form-control btn btn-info btn-outline-success text-black font-monospace" value="Place Order">
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -205,11 +232,11 @@ $db = new MysqliDb();
                     $('#product_table').html($htmlpro);
                 });
             });
-         };
-         //end function 
-         productList();
-         //02 function start update
-         function updateTotal() {
+        };
+        //end function 
+        productList();
+        //02 function start update
+        function updateTotal() {
             // nettotal creat
             var nettotal = 0;
             var grenTotal = 0;
@@ -229,8 +256,8 @@ $db = new MysqliDb();
             }
             $('#discount').text(financial(discount));
             $('#payamount').text(financial(Math.round(grenTotal - discount)));
-         }
-         $(function() {
+        }
+        $(function() {
 
             // autocomplete in customer
 
@@ -260,10 +287,10 @@ $db = new MysqliDb();
                     }
                 });
             };
-         });
+        });
 
-         //03 function start 
-         $(function() {
+        //03 function start 
+        $(function() {
             // table to add product
             $(document).on('click', '.addbutton', function(e) {
                 e.preventDefault();
@@ -292,14 +319,14 @@ $db = new MysqliDb();
                     success: function(response) {
                         response = JSON.parse(response);
                         // add new product row in table
-                        $html = '<tr class="row ">';
+                        $html = '<tr class="">';
                         $html += '<td class="productID d-none">' + response.id + '</td>';
-                        $html += '<td class="col-2 barcode">' + response.barcode + '</td>';
-                        $html += '<td class="col-4">' + response.name + '</td>';
-                        $html += '<td class="pprice col-2 text-end">' + response.price + '</td>';
-                        $html += '<td class="col-1 p-1"><input class="quantity form-control form-control-sm pt-1 pe-1" type="number" name="quantity" value="1" min="1" max="' + response.quantity + '"></td>';
-                        $html += '<td class="itemtotals col-2 text-end">' + response.price + '</td>';
-                        $html += '<td class="col-1 text-center" ><a href="#" class="deleteproduct" data-id="' + response.id + '"><i class="bi bi-trash3"></i></a></td>';
+                        $html += '<td class=" barcode">' + response.barcode + '</td>';
+                        $html += '<td class="">' + response.name + '</td>';
+                        $html += '<td class="pprice text-end">' + response.price + '</td>';
+                        $html += '<td class="p-1"><input class="quantity form-control form-control-sm pt-1 pe-1" type="number" name="quantity" value="1" min="1" max="' + response.quantity + '"></td>';
+                        $html += '<td class="itemtotals text-end">' + response.price + '</td>';
+                        $html += '<td class="text-center" ><a href="#" class="deleteproduct" data-id="' + response.id + '"><i class="bi bi-trash3"></i></a></td>';
                         $html += '</tr>';
                         $('#add_product_container').append($html);
                         $("#SearchInQR").val("").focus();
@@ -356,11 +383,11 @@ $db = new MysqliDb();
                     $("#txnidin").removeClass('d-none');
                 }
             });
-         });
+        });
 
 
-         // place order
-         $(document).on('click', '#placeOrder', function(){
+        // place order
+        $(document).on('click', '#placeOrder', function() {
             var payment_method = $('#payment_method').val();
             if (payment_method == 1) {
                 var trxID = '';
