@@ -66,8 +66,12 @@ if (isset($_POST['barcode'])) {
                 // if(isset($message)) echo $message;
                 ?>
                 <div class="container-md p-5">
+                    <div style="background-color: bisque; text-align: center">
+                        <hr>
+                        <h2>Porduct Insert</h2>
+                        <hr>
+                    </div>
                     <form action="" method="post">
-                        <div class="h2">Porduct Insert</div>
                         <input class="form-control m-2" type="hidden" name="id">
                         <div class="row">
                             <div class="col-sm-3">
@@ -85,15 +89,15 @@ if (isset($_POST['barcode'])) {
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
-                            <div class="input-group mb-3">
-                            <div class="input-group-text">Company_name</div>
-                            <input class="form-control" type="text" name="company_name" require>
-                        </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-text">Company_name</div>
+                                    <input class="form-control" type="text" name="company_name" require>
+                                </div>
                             </div>
                             <div class="col-sm-3">
-                            <div class="input-group mb-3">
-                            <div class="input-group-text">Category_id</div>
-                            <!-- <select name="category_id" id="">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-text">Category_id</div>
+                                    <!-- <select name="category_id" id="">
                                 <option value="">select</option>
                                 <option value="1">Fruit</option>
                                 <option value="2">Kids</option>
@@ -103,14 +107,14 @@ if (isset($_POST['barcode'])) {
                                 <option value="7">Accessories</option>
                                 <option value="8">Art&Draft</option>
                             </select> -->
-                            <input class="form-control" type="text" name="category_id" placeholder="1 to 8" require>
-                        </div>
+                                    <input class="form-control" type="text" name="category_id" placeholder="1 to 8" require>
+                                </div>
                             </div>
                             <div class="col-sm-3">
-                            <div class="input-group mb-3">
-                            <div class="input-group-text">Supplier_id</div>
-                            <input class="form-control" type="text" name="supplier_id" placeholder="1 to 13" require>
-                        </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-text">Supplier_id</div>
+                                    <input class="form-control" type="text" name="supplier_id" placeholder="1 to 13" require>
+                                </div>
                             </div>
                         </div>
                         <div class="input-group mb-3">
@@ -131,11 +135,11 @@ if (isset($_POST['barcode'])) {
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-text">Description</div>
-                            <input class="form-control" type="text" name="description"  require>
+                            <input class="form-control" type="text" name="description" require>
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-text">VAT</div>
-                            <input class="form-control" type="text" name="tax"  require>
+                            <input class="form-control" type="text" name="tax" require>
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-text">Created Time</div>
