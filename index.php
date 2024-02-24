@@ -54,7 +54,7 @@ $page = "Home";
         <div class="row">
             <div class="col-lg-5 col-md-4 col-sm-12">
                 <h5>About us</h5>
-                <p style="font-size: small;">statistic ipsum dolor, sit amet consectetur adipisicing elit. Asperiores ipsum nihil fuga at sint reiciendis minima sequi aliquam eos consequatur, nulla eum dolorem, debitis temporibus voluptates quod dolorum magnam voluptate.</p>
+                <p style="font-size: small;">statistic sit amet consectetur adipisicing elit. Asperiores ipsum nihil fuga at sint reiciendis minima sequi aliquam eos consequatur, nulla eum dolorem, debitis temporibus voluptates quod dolorum magnam voluptate.</p>
             </div>
             <div class="col-lg-5 col-md-4 col-sm-12">
                 <h5>Contact Us</h5>
