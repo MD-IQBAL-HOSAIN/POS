@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2024 at 08:20 AM
+-- Generation Time: Feb 24, 2024 at 07:02 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -41,7 +41,7 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `name`, `account_number`, `balance`, `created`, `deleted`) VALUES
-(1, 'Cash', '01629999666', 3922.00, '2022-06-26 09:11:10', NULL),
+(1, 'Cash', '01629999666', 4237.00, '2022-06-26 09:11:10', NULL),
 (2, 'Rocket', '01629999666', -790596.00, '2022-06-26 09:11:28', NULL),
 (3, 'DBBL', '2161030284757', -2176037930.00, '2022-06-26 09:12:15', NULL),
 (4, 'Bkash', '', -2621739789.00, '2022-06-29 10:31:14', NULL);
@@ -224,7 +224,8 @@ INSERT INTO `invoice` (`id`, `customer_id`, `total`, `total_tax`, `discount`, `p
 (185, 1, 360.00, 18.00, 0.00, 378.00, '', 1, '', '2024-02-22 06:47:44', NULL),
 (186, 1, 180.00, 9.00, 0.00, 189.00, '', 1, '', '2024-02-22 06:48:23', NULL),
 (187, 1, 180.00, 9.00, 0.00, 189.00, '', 1, '', '2024-02-22 07:10:28', NULL),
-(188, 1, 506.00, 25.30, 0.00, 531.00, '', 1, '', '2024-02-22 07:19:40', NULL);
+(188, 1, 506.00, 25.30, 0.00, 531.00, '', 1, '', '2024-02-22 07:19:40', NULL),
+(189, 1, 300.00, 15.00, 0.00, 315.00, '', 1, '', '2024-02-24 06:01:09', NULL);
 
 -- --------------------------------------------------------
 
@@ -301,7 +302,9 @@ INSERT INTO `invoicedetails` (`id`, `invoice_id`, `product_id`, `quantity`, `pri
 (218, 187, 2, 2.00, 90.00, 180.00, '2024-02-22 07:10:28'),
 (219, 188, 2, 1.00, 90.00, 90.00, '2024-02-22 07:19:40'),
 (220, 188, 3, 1.00, 96.00, 96.00, '2024-02-22 07:19:40'),
-(221, 188, 4, 1.00, 320.00, 320.00, '2024-02-22 07:19:40');
+(221, 188, 4, 1.00, 320.00, 320.00, '2024-02-22 07:19:40'),
+(222, 189, 1, 4.00, 60.00, 240.00, '2024-02-24 06:01:09'),
+(223, 189, 1, 1.00, 60.00, 60.00, '2024-02-24 06:01:09');
 
 -- --------------------------------------------------------
 
@@ -366,7 +369,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `barcode`, `name`, `company_name`, `category_id`, `supplier_id`, `wholesale_price`, `retail_price`, `purchase_price`, `quantity`, `description`, `tax`, `created`, `deleted`) VALUES
-(1, '1111', 'Lengra Mango (kg)', 'AZ Agro Ltd.', 1, 1, 50.00, 60.00, 35.00, -1, 'Fresh fruits', 0.00, '2022-06-20 20:48:55', NULL),
+(1, '1111', 'Lengra Mango (kg)', 'AZ Agro Ltd.', 1, 1, 50.00, 60.00, 35.00, 95, 'Fresh fruits', 0.00, '2022-06-20 20:48:55', NULL),
 (2, '1222', 'Himsagar Mango (kg)', 'Confident Mart Ltd.', 1, 4, 75.00, 90.00, 50.00, 5025, 'Fresh Fruits', 5.00, '2022-06-20 20:48:55', NULL),
 (3, '3333', 'Teer 1 Litre pack soyabin oil', 'Teer', 3, 5, 90.00, 96.00, 85.00, 1877, 'lorem ipsum', 0.00, '2022-06-27 11:12:02', NULL),
 (4, '2222', 'Aarong Ghee (200gm)', 'Aarong', 3, 4, 280.00, 320.00, 260.00, 2380, 'Aarong ghee', 0.00, '2022-07-04 18:45:26', NULL),
@@ -569,13 +572,13 @@ ALTER TABLE `expenses`
 -- AUTO_INCREMENT for table `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=189;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
 
 --
 -- AUTO_INCREMENT for table `invoicedetails`
 --
 ALTER TABLE `invoicedetails`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=222;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=224;
 
 --
 -- AUTO_INCREMENT for table `products`
