@@ -1,15 +1,13 @@
 <hr>
-<!-- <a href="index.php">Home</a> | -->
-
 <?php
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == 'true') {
 ?>
 <div class="row d-flex">
-    <div class="col-3">
-    <button class="btn btn-outline-warning"><a style="text-decoration: none;" href="logout.php">Log Out</a></button>
+    <div class="col-11">
+    <h1 class="text-center font-monospace" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">User Management</h1>
     </div>
-    <div class="col-6">
-    <h1 class="m-1 text-center">User Management</h1>
+    <div class="col-1">
+    <button class="btn btn-outline-warning"><a style="text-decoration: none;" href="logout.php">Log Out</a></button>
     </div>
 </div>
 <?php

@@ -175,10 +175,10 @@ $db = new MysqliDb();
                                 <form action="">
                                     <div class="d-flex flex-row mb-2">
                                         <div class="p-2 flex-fill">
-                                            <input type="button" id="selCancel" class="fw-bold fs-6 form-control btn-secondary btn btn-outline-warning text-white font-monospace" value="Cancel">
+                                            <input type="button" id="selCancel" class="fw-bold fs-6 form-control btn-secondary btn btn-outline-warning text-black font-monospace" value="Cancel">
                                         </div>
                                         <div class="p-2 flex-fill">
-                                            <input type="button" id="placeOrder" class="fw-bold fs-6 form-control btn btn-secondary btn-outline-success text-white font-monospace" value="Place Order">
+                                            <input type="button" id="placeOrder" class="fw-bold fs-6 form-control btn btn-secondary btn-outline-success text-black font-monospace" value="Place Order">
                                         </div>
                                     </div>
                                 </form>
@@ -188,11 +188,6 @@ $db = new MysqliDb();
                 </div>
             </div>
         </div>
-        <!-- <select name="" id="">
-            <option value="' + response.name + '" selected>' + response.name + '</option>
-            <option value=""><a href="#" class="deleteproduct" data-id="' + response.id + '"><i class="bi bi-trash3"></i></a></option>
-        </select> -->
-        <!-- <a href="#" class="deleteproduct" data-id="' + response.id + '"><i class="bi bi-trash3"></i></a> -->
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
