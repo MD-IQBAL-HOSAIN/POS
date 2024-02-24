@@ -29,9 +29,10 @@ $db = new MysqliDb();
          bottom: 0; 
         top: 0; */
     }
-    .headinghang{
+
+    .headinghang {
         position: sticky;
-        top:0;
+        top: 0;
     }
 </style>
 <main>
@@ -47,7 +48,7 @@ $db = new MysqliDb();
                 <span style="font-size: 50px; color:chocolate; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"><strong><i>BEST BUY SUPER SHOP</i></strong></span> <br>
             </div>
         </div>
-        <?php require __DIR__ . '/components/menubar.php';?>
+        <?php require __DIR__ . '/components/menubar.php'; ?>
         <!-- <hr id="positioning"> -->
         <div id="posbody" class="headinghang">
             <div class="row">
@@ -55,7 +56,7 @@ $db = new MysqliDb();
                     <h1 class="text-white">Transaction</h1>
                     <hr>
                     <div>
-                       <a href="#"><button class="btn btn-success text-white btn-outline-warning"> Invoice History</button></a> 
+                        <a href="#"><button class="btn btn-success text-white btn-outline-warning"> Invoice History</button></a>
                     </div>
                 </div>
                 <div class="col-5 ">
@@ -76,24 +77,9 @@ $db = new MysqliDb();
                                     <th>Add+</th>
                                 </tr>
                             </thead>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel"><img src="images/shark.png" alt=""><i>Best Buy Super Shop</i></h1>
-                                            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-                                        </div>
-                                        <div class="modal-body">
-                                            <tbody id="product_table" class="overflow-y-scroll h-100">
-
-                                            </tbody>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                            <tbody id="product_table" class="overflow-y-scroll h-100">
+                            </tbody>
                         </table>
-
                     </div>
                 </div>
                 <div class="col-5 border bg-primary bg-opacity-10">
@@ -231,7 +217,6 @@ $db = new MysqliDb();
                     $htmlpro += '<td>' + prolist.quantity + '</td>';
                     $htmlpro += '<td><button class="addbutton btn btn-secondary btn-outline-success text-white"><i class="bi bi-cart-plus"></i></button></td>';
                     $htmlpro += '</tr>';
-                    //$('#product_table').append($htmlpro);
                     $('#product_table').html($htmlpro);
                 });
             });
