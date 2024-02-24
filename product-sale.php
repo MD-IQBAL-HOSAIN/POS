@@ -52,7 +52,7 @@ $db = new MysqliDb();
         <!-- <hr id="positioning"> -->
         <div id="posbody" class="headinghang">
             <div class="row">
-                <div class="col-2 bg-secondary">
+                <div class="col-2 bg-secondary bg-opacity-75">
                     <h1 class="text-white">Transaction</h1>
                     <hr>
                     <div>
