@@ -47,13 +47,16 @@ $db = new MysqliDb();
                 <span style="font-size: 50px; color:chocolate; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"><strong><i>BEST BUY SUPER SHOP</i></strong></span> <br>
             </div>
         </div>
-        <?php require __DIR__ . '/components/menubar.php'; ?>
-        <hr id="positioning">
+        <?php require __DIR__ . '/components/menubar.php';?>
+        <!-- <hr id="positioning"> -->
         <div id="posbody" class="headinghang">
             <div class="row">
                 <div class="col-2 bg-secondary">
-                    <h1 class="text-white">Side Bar</h1>
+                    <h1 class="text-white">Transaction</h1>
                     <hr>
+                    <div>
+                       <a href="#"><button class="btn btn-success text-white btn-outline-warning"> Invoice History</button></a> 
+                    </div>
                 </div>
                 <div class="col-5 ">
                     <form action="">
@@ -186,10 +189,10 @@ $db = new MysqliDb();
                                 <form action="">
                                     <div class="d-flex flex-row mb-2">
                                         <div class="p-2 flex-fill">
-                                            <input type="button" id="selCancel" class="fw-bold fs-6 form-control btn-light btn btn-outline-warning text-black font-monospace" value="Cancel">
+                                            <input type="button" id="selCancel" class="fw-bold fs-6 form-control btn-secondary btn btn-outline-warning text-white font-monospace" value="Cancel">
                                         </div>
                                         <div class="p-2 flex-fill">
-                                            <input type="button" id="placeOrder" class="fw-bold fs-6 form-control btn btn-info btn-outline-success text-black font-monospace" value="Place Order">
+                                            <input type="button" id="placeOrder" class="fw-bold fs-6 form-control btn btn-secondary btn-outline-success text-white font-monospace" value="Place Order">
                                         </div>
                                     </div>
                                 </form>
