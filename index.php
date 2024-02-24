@@ -58,7 +58,7 @@ $page = "Home";
             </div>
             <div class="col-lg-5 col-md-4 col-sm-12">
                 <h5>Contact Us</h5>
-                <p style="font-size: small;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis excepturi vitae ullam laborum quam temporibus quisquam aperiam aut laboriosam dolorum. Commodi nulla esse quia alias a corporis, harum autem dolores.</p>
+                <p style="font-size: small;"> BEST BUY SUPER SHOP, Group of SHARK <br> Head Office: Agargaon, Dhaka. <br> cell: +990879, Mobile: 017000000</p>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-12">
                 <h5>Follow Us</h5>
