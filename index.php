@@ -22,7 +22,7 @@ $page = "Home";
 
 <body>
     <div class="container" style="background-color: whitesmoke">
-    <!-- <div class="container" style="background: linear-gradient(45deg, #3498db, #e74c3c, #2ecc71, #f39c12);"> -->
+        <!-- <div class="container" style="background: linear-gradient(45deg, #3498db, #e74c3c, #2ecc71, #f39c12);"> -->
         <hr>
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4">
@@ -41,7 +41,11 @@ $page = "Home";
                     <img src="images/pos1.png" class="img" alt="">
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-11">
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis quidem temporibus perspiciatis saepe maxime aliquid impedit, quasi voluptatem officia ipsa, tempora porro ex adipisci placeat molestias autem. Aliquam, similique distinctio!</p>
+                    <p>A Point of Sale (POS) system is a combination of hardware and software that allows businesses to manage and complete transactions with customers. It is a central component in retail and hospitality industries, providing a streamlined way to handle sales, process payments, and manage inventory. Here are key aspects and functionalities of a POS system:
+
+                        Transaction Processing: The primary function of a POS system is to process sales transactions. It allows businesses to ring up items, calculate the total cost, apply discounts or promotions, and generate receipts.
+
+                        Inventory Management: POS systems help businesses keep track of their inventory in real-time. As items are sold, the system automatically updates the inventory levels, preventing stockouts and providing insights into product movement.</p>
                 </div>
 
             </div>
