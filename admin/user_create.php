@@ -7,7 +7,6 @@ require __DIR__ . '/../vendor/autoload.php';
 <?php require __DIR__ . '/components/header.php'; ?>
 <?php
 if (isset($_POST['submit'])) {
-    // require "conn.php";
     $db = new MysqliDb();
     if ($_POST['pass1'] == $_POST['pass2']) {
         $data = [

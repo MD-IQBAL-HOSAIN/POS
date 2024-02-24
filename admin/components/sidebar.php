@@ -23,7 +23,7 @@
                     <nav class="sb-sidenav-menu-nested nav">
                         <!-- product categories -->
                         <a class="nav-link" href="category_all.php"><i class="bi bi-bank"></i>Product categories</a>
-                        <a class="nav-link" href="select.php"><i class="bi bi-bank"></i>Product_in_up_Del</a>
+                        <!-- <a class="nav-link" href="select.php"><i class="bi bi-bank"></i>Product_in_up_Del</a> -->
                         <!-- <a class="nav-link" href="layout-static.html">All</a> -->
 
                         <a class="nav-link" href="customer_list.php"><i class="bi bi-person-workspace"></i>Customers</a>
@@ -87,7 +87,7 @@
                         </div>
                     </nav>
                 </div>
-                <div class="sb-sidenav-menu-heading">Addons</div>
+                <!-- <div class="sb-sidenav-menu-heading">Addons</div>
                 <a class="nav-link" href="charts.html">
                     <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                     Charts
@@ -99,7 +99,7 @@
                 <a class="nav-link" href="blank.php">
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                     Blank
-                </a>
+                </a> -->
             </div>
         </div>
         <div class="sb-sidenav-footer">
