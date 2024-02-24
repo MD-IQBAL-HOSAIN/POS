@@ -36,6 +36,7 @@ if (isset($_POST['barcode'])) {
         'category_id' => $p_cat_id,
         'supplier_id' => $p_supp_id,
         'wholesale_price' => $p_whole_price,
+        'retail_price' => $p_retail_price,
         'purchase_price' => $p_purchase_price,
         'quantity' => $p_quantity,
         'description' => $p_description,
