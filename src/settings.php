@@ -5,7 +5,7 @@ if (!function_exists('settings')) {
        $root = "http://localhost/A_PROJECT/my_projects/"; 
         return [
             'root'  => $root,
-            'companyname'=> 'Shark Super Shop',
+            'companyname'=> 'BEST BUY SUPER SHOP',
             'logo'=>$root."admin/assets/img/logo.png",
             'homepage'=> $root,
             'adminpage'=>$root.'admin/',
