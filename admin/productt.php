@@ -30,8 +30,8 @@ $products = $db->get('products');
     <th>company name</th>
     <th>Quantity</th>
     <th>Product Edit</th>
-    <td><a href='product_add.php' style="text-decoration: none;">ADD Product</a></td>
-    <!-- <td><a href='product_add.php'><button class="btn btn-outline-success">ADD Product</button></a></td> -->
+    <!-- <td><a href='product_add.php' style="text-decoration: none;">ADD Product</a></td> -->
+    <td><a href='product_add.php'><button class="btn btn-outline-success">ADD Product</button></a></td>
     </tr>
     <?php
     foreach ($products as $p) {
