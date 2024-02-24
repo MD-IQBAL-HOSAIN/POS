@@ -35,6 +35,7 @@ if (isset($_POST['barcode'])) {
         'category_id' => $p_cat_id,
         'supplier_id' => $p_supp_id,
         'wholesale_price' => $p_whole_price,
+        'retail_price' => $p_retail_price,
         'purchase_price' => $p_purchase_price,
         'quantity' => $p_quantity,
         'description' => $p_description,
@@ -92,13 +93,23 @@ if (isset($_POST['barcode'])) {
                             <div class="col-sm-3">
                             <div class="input-group mb-3">
                             <div class="input-group-text">Category_id</div>
-                            <input class="form-control" type="text" name="category_id" require>
+                            <!-- <select name="category_id" id="">
+                                <option value="">select</option>
+                                <option value="1">Fruit</option>
+                                <option value="2">Kids</option>
+                                <option value="3">Grocery</option>
+                                <option value="4">Electronics</option>
+                                <option value="5">Footwear</option>
+                                <option value="7">Accessories</option>
+                                <option value="8">Art&Draft</option>
+                            </select> -->
+                            <input class="form-control" type="text" name="category_id" placeholder="1 to 8" require>
                         </div>
                             </div>
                             <div class="col-sm-3">
                             <div class="input-group mb-3">
                             <div class="input-group-text">Supplier_id</div>
-                            <input class="form-control" type="text" name="supplier_id" require>
+                            <input class="form-control" type="text" name="supplier_id" placeholder="1 to 13" require>
                         </div>
                             </div>
                         </div>
