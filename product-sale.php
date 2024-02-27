@@ -65,6 +65,7 @@ $db = new MysqliDb();
                             <input class="form-control p-1" type="text" name="" id="searchProducts" placeholder="Product search">
                         </div>
                     </form>
+                    <!-- show all products -->
                     <div id="protablecon" class="scroll">
                         <div class="h4 text-center fw-bolder">ALL PRODUCTS</div>
                         <table class="table table-sm table-hover table-striped table-border">
@@ -74,7 +75,7 @@ $db = new MysqliDb();
                                     <th>Name</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
-                                    <th>Add+</th>
+                                    <th>ADD To Cart+</th>
                                 </tr>
                             </thead>
                             <tbody id="product_table" class="overflow-y-scroll h-100">
@@ -216,8 +217,10 @@ $db = new MysqliDb();
                 });
             });
         };
-        //end function 
         productList();
+        //end function 
+
+        
         //02 function start update
         function updateTotal() {
             // nettotal creat
