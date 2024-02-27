@@ -8,7 +8,7 @@ if (isset($_POST['reg'])) {
       'name' => $db->escape($_POST['firstname']) . " " . $db->escape($_POST['lastname']),
       'email' => $db->escape($_POST['email']),
       'password' => password_hash($_POST['pass1'], PASSWORD_DEFAULT),
-      'role' => "1"
+      'role' => "3"
     ];
     if ($db->insert("users", $data)) {
       header("location:login.php");
