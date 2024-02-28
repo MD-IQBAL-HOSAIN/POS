@@ -79,12 +79,9 @@ if (isset($_POST['reg'])) {
         </div>
       </form>
     </div>
-    <!--  -->
     <?php
-    // echo testfunc();
     ?>
   </div>
   <script>
-
   </script>
   <?php require __DIR__ . '/components/footer.php'; ?>

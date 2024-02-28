@@ -244,9 +244,7 @@ $db = new MysqliDb();
             $('#payamount').text(financial(Math.round(grenTotal - discount)));
         }
         $(function() {
-
             // autocomplete in customer
-
             $('#SearchInCustomer').autocomplete({
                 source: "search_customer.php",
                 minLength: 1,
